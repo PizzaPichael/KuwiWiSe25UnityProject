@@ -1,0 +1,8 @@
+Model Information:
+* title:	Airport Airplane 3
+* source:	https://sketchfab.com/3d-models/airport-airplane-3-8129025df0ab495ba9dfc19a7f91557b
+* author:	assetfactory (https://sketchfab.com/assetfactory)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
