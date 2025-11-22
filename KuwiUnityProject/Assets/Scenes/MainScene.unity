@@ -543,6 +543,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1035975654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+  m_PrefabInstance: {fileID: 3375001687043365560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145580805
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 1145580805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71379, y: -0.08607, z: -6.50538}
+  m_LocalPosition: {x: -0.02, y: -0.08607, z: -4.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -650,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.125
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -690,29 +695,37 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2130006533}
+      addedObject: {fileID: 2130006535}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2130006535}
+      addedObject: {fileID: 2130006536}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006538}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006540}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006539}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006543}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006542}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006541}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2130006544}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
 --- !u!1 &2130006532 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
   m_PrefabInstance: {fileID: 1152238161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2130006533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130006532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f3c73852eee19419c7cd840d0d2af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpinObject
-  rotationSpeed: 50
 --- !u!135 &2130006535
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -734,6 +747,200 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.1
   m_Center: {x: 0, y: 0, z: 1.12}
+--- !u!114 &2130006536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b19a213786b34d1eb6fe26ebce870ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoordinateMapper
+  latitude: 52.49275
+  longitude: 13.340564
+  sphere: {fileID: 2130006537}
+  radius: 1.2
+  indicator: {fileID: 1035975654}
+--- !u!4 &2130006537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+  m_PrefabInstance: {fileID: 1152238161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130006538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/EJA274
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+  indicatorColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &2130006539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/TWY3
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 1035975654}
+  indicatorColor: {r: 0.01935625, g: 0, b: 1, a: 1}
+--- !u!114 &2130006540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/GS1
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 1035975654}
+  indicatorColor: {r: 0, g: 1, b: 0.17614937, a: 1}
+--- !u!114 &2130006541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/N277KE
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 1035975654}
+  indicatorColor: {r: 1, g: 0.5615012, b: 0, a: 1}
+--- !u!114 &2130006542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/EJA154
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 1035975654}
+  indicatorColor: {r: 0, g: 0.72298765, b: 1, a: 1}
+--- !u!114 &2130006543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6dc37c0ff974ecaafa4c2e1174b1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListCoordinateMapper
+  planeURL: https://flights.davidkirchner.de/api/airplanes/PAT481
+  sphere: {fileID: 2130006537}
+  radius: 1.15
+  indicatorPrefab: {fileID: 1035975654}
+  indicatorColor: {r: 1, g: 0, b: 0.95709896, a: 1}
+--- !u!114 &2130006544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130006532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f3c73852eee19419c7cd840d0d2af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpinObject
+  rotationSpeed: 20
+--- !u!1001 &3375001687043365560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.949
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.58651
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.481
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422876954878499494, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462904385740620626, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_Name
+      value: Indicator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -743,3 +950,4 @@ SceneRoots:
   - {fileID: 71986553}
   - {fileID: 1145580808}
   - {fileID: 1152238161}
+  - {fileID: 3375001687043365560}

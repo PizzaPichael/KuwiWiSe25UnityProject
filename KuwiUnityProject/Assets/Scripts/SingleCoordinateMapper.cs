@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CoordinateMapper : MonoBehaviour
+public class SingleCoordinateMapper : MonoBehaviour
 {
     [SerializeField] private float latitude;
     [SerializeField] private float longitude;
