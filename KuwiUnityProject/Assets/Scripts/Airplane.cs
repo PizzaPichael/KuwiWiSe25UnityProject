@@ -9,19 +9,31 @@ public class Airplane : MonoBehaviour
 
     private Coroutine flightRoutine;
     public string TailNumber { get; private set; }
+    private readonly List<GameObject> activeMarkers = new List<GameObject>();
+    private int markerInterval = 1;
+    private int markerMaxCount = 0;
+    private float markerLifetimeSeconds = 0f;
 
     public void Initialize(
         string tailNumber,
         List<ListCoordinateMapper.MappedLocation> path,
         GameObject markerPrefab,
         Transform markerParent,
-        float timeCompression)
+        float timeCompression,
+        int markerInterval,
+        int markerMaxCount,
+        float markerLifetimeSeconds)
     {
         TailNumber = tailNumber;
         if (flightRoutine != null)
         {
             StopCoroutine(flightRoutine);
         }
+
+        CleanupMarkers();
+        this.markerInterval = Mathf.Max(1, markerInterval);
+        this.markerMaxCount = markerMaxCount;
+        this.markerLifetimeSeconds = markerLifetimeSeconds;
 
         flightRoutine = StartCoroutine(PlayFlight(path, markerPrefab, markerParent, timeCompression));
     }
@@ -37,17 +49,10 @@ public class Airplane : MonoBehaviour
             yield break;
         }
 
-        // Drop markers for every sampled position.
-        if (markerPrefab != null)
-        {
-            foreach (var point in path)
-            {
-                Instantiate(markerPrefab, point.Position, Quaternion.identity, markerParent);
-            }
-        }
-
         // Place at start.
         transform.position = path[0].Position;
+        // Spawn initial marker at start (index 0).
+        SpawnMarkerIfNeeded(markerPrefab, markerParent, 0, path.Count, path[0].Position);
         if (path.Count == 1)
         {
             SetRotation(Vector3.forward, path[0].Position);
@@ -84,7 +89,68 @@ public class Airplane : MonoBehaviour
 
             transform.position = next.Position;
             transform.rotation = targetRot;
+
+            // Drop/activate marker for the point we just reached.
+            SpawnMarkerIfNeeded(markerPrefab, markerParent, i + 1, path.Count, next.Position);
         }
+    }
+
+    private void SpawnMarkerIfNeeded(GameObject markerPrefab, Transform markerParent, int pathIndex, int pathCount, Vector3 position)
+    {
+        if (markerPrefab == null) return;
+
+        bool shouldSpawn = pathIndex % markerInterval == 0 || pathIndex == pathCount - 1;
+        if (!shouldSpawn) return;
+
+        var marker = Instantiate(markerPrefab, position, Quaternion.identity, markerParent);
+        marker.SetActive(true);
+        activeMarkers.Add(marker);
+
+        if (markerMaxCount > 0)
+        {
+            while (activeMarkers.Count > markerMaxCount)
+            {
+                DestroyOldestMarker();
+            }
+        }
+
+        if (markerLifetimeSeconds > 0f)
+        {
+            StartCoroutine(CullAfter(marker, markerLifetimeSeconds));
+        }
+    }
+
+    private IEnumerator CullAfter(GameObject marker, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (marker != null)
+        {
+            activeMarkers.Remove(marker);
+            Destroy(marker);
+        }
+    }
+
+    private void DestroyOldestMarker()
+    {
+        if (activeMarkers.Count == 0) return;
+        var oldest = activeMarkers[0];
+        activeMarkers.RemoveAt(0);
+        if (oldest != null)
+        {
+            Destroy(oldest);
+        }
+    }
+
+    private void CleanupMarkers()
+    {
+        foreach (var marker in activeMarkers)
+        {
+            if (marker != null)
+            {
+                Destroy(marker);
+            }
+        }
+        activeMarkers.Clear();
     }
 
     private void SetRotation(Vector3 forward, Vector3 position)
