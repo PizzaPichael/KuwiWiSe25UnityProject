@@ -13,6 +13,12 @@ public class AirplaneMapper : MonoBehaviour
     [Header("Playback")]
     [Tooltip("Compress real time by this factor. 12 => a 5 minute gap plays in 25 seconds.")]
     [SerializeField] private float timeCompression = 12f;
+    [Tooltip("Place a marker every Nth point (1 = every point).")]
+    [SerializeField] private int markerInterval = 10;
+    [Tooltip("Keep at most this many active markers. 0 = unlimited.")]
+    [SerializeField] private int markerMaxCount = 200;
+    [Tooltip("Seconds before a marker is culled. 0 = never cull by time.")]
+    [SerializeField] private float markerLifetimeSeconds = 300f;
 
     [Header("Globe")]
     [SerializeField] private float globeRadius = 1f;
@@ -60,7 +66,15 @@ public class AirplaneMapper : MonoBehaviour
                 }
 
                 activeAirplanes[tailNumber] = airplane;
-                airplane.Initialize(tailNumber, path, markerPrefab, markersParent == null ? transform : markersParent, timeCompression);
+                airplane.Initialize(
+                    tailNumber,
+                    path,
+                    markerPrefab,
+                    markersParent == null ? transform : markersParent,
+                    timeCompression,
+                    Mathf.Max(1, markerInterval),
+                    Mathf.Max(0, markerMaxCount),
+                    Mathf.Max(0f, markerLifetimeSeconds));
             },
             error => Debug.LogError(error));
     }
