@@ -637,6 +637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyEarth
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -701,7 +705,7 @@ PrefabInstance:
       addedObject: {fileID: 2130006544}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2130006545}
+      addedObject: {fileID: 2130006547}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
 --- !u!1 &1640323299 stripped
 GameObject:
@@ -747,7 +751,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpinObject
   rotationSpeed: 0
---- !u!114 &2130006545
+--- !u!4 &2130006546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+  m_PrefabInstance: {fileID: 1152238161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130006547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -759,30 +768,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61bbbe4903645938cf1c6c650b9edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirplaneMapper
-  baseUrl: https://flights.davidkirchner.de/api/airplanes
+  airplanePrefab: {fileID: 185254564}
+  markerPrefab: {fileID: 1640323299}
+  airplanesParent: {fileID: 2130006546}
+  markersParent: {fileID: 2130006546}
+  timeCompression: 500
+  globeRadius: 1.1
+  globeCenter: {x: 0, y: 0, z: 0}
+  altitudeIsFeet: 1
   tailNumbers:
   - N514CJ
-  sphere: {fileID: 2130006546}
-  sphereRadius: 0.1
-  airplanePrefab: {fileID: 185254564}
-  pathMarkerPrefab: {fileID: 1640323299}
-  interpolationStepsPerSegment: 8
-  invertLatitude: 0
-  invertLongitude: 0
-  swapLatLon: 0
-  debugDrawPath: 1
-  debugPathColor: {r: 0, g: 1, b: 1, a: 1}
-  debugPathWidth: 0.02
-  debugPathMaterial: {fileID: 2100000, guid: 326cbe18656e8499195c92c8a515e9dd, type: 2}
-  timeScale: 5000
-  minSegmentDuration: 0.5
-  rotationLerpSpeed: 10
-  autoStartOnPlay: 1
---- !u!4 &2130006546 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
-  m_PrefabInstance: {fileID: 1152238161}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1428302540452932947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +829,10 @@ PrefabInstance:
     - target: {fileID: 8571399458361909602, guid: e4872a926a927413794176a95e62d8a3, type: 3}
       propertyPath: m_Name
       value: Airplane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571399458361909602, guid: e4872a926a927413794176a95e62d8a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -891,6 +890,10 @@ PrefabInstance:
     - target: {fileID: 4462904385740620626, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
       propertyPath: m_Name
       value: Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462904385740620626, guid: 60b939408f5594350a36a086e202fe6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
