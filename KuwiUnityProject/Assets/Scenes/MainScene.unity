@@ -766,8 +766,17 @@ MonoBehaviour:
   sphereRadius: 0.1
   airplanePrefab: {fileID: 185254564}
   pathMarkerPrefab: {fileID: 1640323299}
+  interpolationStepsPerSegment: 8
+  invertLatitude: 0
+  invertLongitude: 0
+  swapLatLon: 0
+  debugDrawPath: 1
+  debugPathColor: {r: 0, g: 1, b: 1, a: 1}
+  debugPathWidth: 0.02
+  debugPathMaterial: {fileID: 2100000, guid: 326cbe18656e8499195c92c8a515e9dd, type: 2}
   timeScale: 5000
   minSegmentDuration: 0.5
+  rotationLerpSpeed: 10
   autoStartOnPlay: 1
 --- !u!4 &2130006546 stripped
 Transform:

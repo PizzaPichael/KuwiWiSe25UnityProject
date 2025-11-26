@@ -1,64 +1,66 @@
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
-public class ListCoordinateMapper : MonoBehaviour
+public static class ListCoordinateMapper
 {
-    [SerializeField] private string planeURL;
-    [SerializeField] private Transform sphere;
-    [SerializeField] private float radius = 1.2f;
-    [SerializeField] private Transform indicatorPrefab;
-    [SerializeField] private Color indicatorColor = Color.red;  // default color
-
-    private List<Transform> indicators = new List<Transform>();
-
-    void Start()
+    public struct MappedLocation
     {
-        StartCoroutine(CoordinateFetcher.GetAirplaneStatic(planeURL, (result) =>
-        {
-            if (result != null)
-            {
-                Debug.Log("Airplane loaded with locations: " + result.Locations.Count);
-                List<Vector2> locationList = new List<Vector2>(result.Locations.Values);
-                SetLocations(locationList);
-            }
-            else
-            {
-                Debug.LogWarning("Failed to load airplane data.");
-            }
-        }));
+        public DateTime Timestamp;
+        public Vector3 Position;
+        public float Track;
+        public float GroundSpeed;
+        public float Altitude;
     }
 
-    Vector3 LatLonToSphere(float lat, float lon, float r)
+    private const float EarthRadiusMeters = 6_371_000f;
+
+    public static List<MappedLocation> MapToWorld(
+        CoordinateFetcher.AirplaneResponse response,
+        float globeRadius = 1f,
+        Vector3 globeCenter = default,
+        bool altitudeIsFeet = true)
     {
-        float latRad = lat * Mathf.Deg2Rad;
-        float lonRad = lon * Mathf.Deg2Rad;
-        float x = r * Mathf.Cos(latRad) * Mathf.Cos(lonRad);
-        float y = r * Mathf.Sin(latRad);
-        float z = r * Mathf.Cos(latRad) * Mathf.Sin(lonRad);
-        return new Vector3(x, y, z);
-    }
+        var mapped = new List<MappedLocation>();
+        if (response?.locations == null) return mapped;
 
-    public void SetLocations(List<Vector2> latLonList)
-    {
-        foreach (var ind in indicators)
+        foreach (var loc in response.locations)
         {
-            if (ind != null) Destroy(ind.gameObject);
-        }
-        indicators.Clear();
+            if (!double.TryParse(loc.latitude, NumberStyles.Float, CultureInfo.InvariantCulture, out var latDeg)) continue;
+            if (!double.TryParse(loc.longitude, NumberStyles.Float, CultureInfo.InvariantCulture, out var lonDeg)) continue;
+            if (!DateTime.TryParse(loc.time, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out var timestamp)) continue;
 
-        foreach (var latLon in latLonList)
-        {
-            Vector3 position = LatLonToSphere(latLon.x, latLon.y, radius);
-            Transform newIndicator = Instantiate(indicatorPrefab, position, Quaternion.identity, sphere);
+            float altitudeMeters = altitudeIsFeet ? loc.altitude * 0.3048f : loc.altitude;
+            float radialOffset = (altitudeMeters / EarthRadiusMeters) * globeRadius;
 
-            // Apply the indicator color
-            Renderer rend = newIndicator.GetComponent<Renderer>();
-            if (rend != null)
+            float latRad = Mathf.Deg2Rad * (float)latDeg;
+            float lonRad = Mathf.Deg2Rad * (float)lonDeg;
+
+            float cosLat = Mathf.Cos(latRad);
+            float sinLat = Mathf.Sin(latRad);
+            float cosLon = Mathf.Cos(lonRad);
+            float sinLon = Mathf.Sin(lonRad);
+
+            var direction = new Vector3(
+                cosLat * cosLon,
+                sinLat,
+                cosLat * sinLon
+            );
+
+            var worldPos = globeCenter + direction * (globeRadius + radialOffset);
+
+            mapped.Add(new MappedLocation
             {
-                rend.material.color = indicatorColor;
-            }
-
-            indicators.Add(newIndicator);
+                Timestamp = timestamp,
+                Position = worldPos,
+                Track = loc.track,
+                GroundSpeed = loc.ground_speed,
+                Altitude = loc.altitude
+            });
         }
+
+        mapped.Sort((a, b) => a.Timestamp.CompareTo(b.Timestamp));
+        return mapped;
     }
 }
