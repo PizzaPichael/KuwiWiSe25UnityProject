@@ -27,16 +27,48 @@ public class AirplaneMapper : MonoBehaviour
 
     [Header("Tail numbers to play")]
     [SerializeField] private List<string> tailNumbers = new List<string>();
+    [Tooltip("If enabled, fetch the most popular airplanes from the API instead of using the list above.")]
+    [SerializeField] private bool usePopularFromApi = false;
+    [SerializeField] private int popularCount = 3;
 
     private readonly Dictionary<string, Airplane> activeAirplanes = new Dictionary<string, Airplane>();
 
     private void Start()
     {
-        foreach (var tail in tailNumbers)
+        if (usePopularFromApi)
+        {
+            StartCoroutine(LoadPopularAndSpawn());
+        }
+        else
+        {
+            StartFlightsFromList(tailNumbers);
+        }
+    }
+
+    private void StartFlightsFromList(IEnumerable<string> tails)
+    {
+        // If popular mode is enabled, ignore the inspector list to avoid double-loading.
+        if (usePopularFromApi && ReferenceEquals(tails, tailNumbers))
+        {
+            return;
+        }
+
+        foreach (var tail in tails)
         {
             if (string.IsNullOrWhiteSpace(tail)) continue;
             StartCoroutine(LoadAndSpawn(tail.Trim()));
         }
+    }
+
+    private IEnumerator LoadPopularAndSpawn()
+    {
+        yield return CoordinateFetcher.FetchTopAirplanes(
+            Mathf.Max(1, popularCount),
+            list =>
+            {
+                StartFlightsFromList(list);
+            },
+            error => Debug.LogError(error));
     }
 
     private IEnumerator LoadAndSpawn(string tailNumber)
