@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61bbbe4903645938cf1c6c650b9edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AirplaneMapper
-  airplanePrefab: {fileID: 185254564}
+  airplanePrefab: {fileID: 1789703080117175837, guid: a24f7ed580e27f443b04ab5ccdd1006d, type: 3}
   markerPrefab: {fileID: 1640323299}
   airplanesParent: {fileID: 855700847}
   markersParent: {fileID: 855700847}
@@ -869,6 +869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpinObject
   rotationSpeed: 0
+  speedSlider: {fileID: 0}
+  valueText: {fileID: 0}
 --- !u!4 &2130006546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
