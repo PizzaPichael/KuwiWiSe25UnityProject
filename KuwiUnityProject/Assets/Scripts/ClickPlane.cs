@@ -1,40 +1,32 @@
 using UnityEngine;
-using ISys = UnityEngine.InputSystem;
-using ET = UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.Events;
-using System;
+using UnityEngine.InputSystem;
 
 public class ClickPlane : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject speechBubblePrefab;
-    private GameObject instantiatedSpeechBubble;
-    private CapsuleCollider _collider;
-    private MouseInputProvider _mouse;
+    [SerializeField] private GameObject prefabToInstantiate;
+    [SerializeField] private Vector3 spawnPosition;
 
-    public Vector3 bubbleOffsetFromPlane;
+    private Camera mainCamera;
 
     private void Awake()
     {
-        _collider = GetComponent<CapsuleCollider>();
-        _mouse = FindAnyObjectByType<MouseInputProvider>();
-        _mouse.Clicked += MouseOnClicked;
+        mainCamera = Camera.main;
     }
 
-    private void MouseOnClicked()
+    private void Update()
     {
-        if (_collider.bounds.Contains(_mouse.WorldPosition))
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Debug.Log("Bounds: " + _collider.bounds);
-            Debug.Log("Mouse World Pos: " + _mouse.WorldPosition);
-            if (instantiatedSpeechBubble != null)
+            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Destroy(instantiatedSpeechBubble);
-            }
-            else
-            {
-                instantiatedSpeechBubble = Instantiate(speechBubblePrefab, this.transform.position + bubbleOffsetFromPlane, Quaternion.identity);
-                //instantiatedSpeechBubble.SetActive(true);   
+                if (hit.transform == transform)
+                {
+                    if (prefabToInstantiate != null)
+                    {
+                        Instantiate(prefabToInstantiate, spawnPosition, Quaternion.identity);
+                    }
+                }
             }
         }
     }
