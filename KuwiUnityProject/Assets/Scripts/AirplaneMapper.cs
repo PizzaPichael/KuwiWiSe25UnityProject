@@ -6,7 +6,7 @@ public class AirplaneMapper : MonoBehaviour
 {
     [Header("Prefabs & Parents")]
     [SerializeField] private GameObject airplanePrefab;
-    [SerializeField] private GameObject markerPrefab;
+    [SerializeField] private GameObject markerPack;
     [SerializeField] private Transform airplanesParent;
     [SerializeField] private Transform markersParent;
 
@@ -101,7 +101,7 @@ public class AirplaneMapper : MonoBehaviour
                 airplane.Initialize(
                     tailNumber,
                     path,
-                    markerPrefab,
+                    markerPack,
                     markersParent == null ? transform : markersParent,
                     timeCompression,
                     Mathf.Max(1, markerInterval),

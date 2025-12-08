@@ -17,7 +17,7 @@ public class Airplane : MonoBehaviour
     public void Initialize(
         string tailNumber,
         List<ListCoordinateMapper.MappedLocation> path,
-        GameObject markerPrefab,
+        GameObject markerPack,
         Transform markerParent,
         float timeCompression,
         int markerInterval,
@@ -35,12 +35,12 @@ public class Airplane : MonoBehaviour
         this.markerMaxCount = markerMaxCount;
         this.markerLifetimeSeconds = markerLifetimeSeconds;
 
-        flightRoutine = StartCoroutine(PlayFlight(path, markerPrefab, markerParent, timeCompression));
+        flightRoutine = StartCoroutine(PlayFlight(path, markerPack, markerParent, timeCompression));
     }
 
     private IEnumerator PlayFlight(
         List<ListCoordinateMapper.MappedLocation> path,
-        GameObject markerPrefab,
+        GameObject markerPack,
         Transform markerParent,
         float timeCompression)
     {
@@ -52,7 +52,7 @@ public class Airplane : MonoBehaviour
         // Place at start.
         transform.position = path[0].Position;
         // Spawn initial marker at start (index 0).
-        SpawnMarkerIfNeeded(markerPrefab, markerParent, 0, path.Count, path[0].Position);
+        SpawnMarkerIfNeeded(markerPack, markerParent, 0, path.Count, path[0].Position);
         if (path.Count == 1)
         {
             SetRotation(Vector3.forward, path[0].Position);
@@ -91,19 +91,23 @@ public class Airplane : MonoBehaviour
             transform.rotation = targetRot;
 
             // Drop/activate marker for the point we just reached.
-            SpawnMarkerIfNeeded(markerPrefab, markerParent, i + 1, path.Count, next.Position);
+            SpawnMarkerIfNeeded(markerPack, markerParent, i + 1, path.Count, next.Position);
         }
     }
 
-    private void SpawnMarkerIfNeeded(GameObject markerPrefab, Transform markerParent, int pathIndex, int pathCount, Vector3 position)
+    private void SpawnMarkerIfNeeded(GameObject markerPack, Transform markerParent, int pathIndex, int pathCount, Vector3 position)
     {
-        if (markerPrefab == null) return;
+        if (markerPack == null) return;
 
         bool shouldSpawn = pathIndex % markerInterval == 0 || pathIndex == pathCount - 1;
         if (!shouldSpawn) return;
-
-        var marker = Instantiate(markerPrefab, position, Quaternion.identity, markerParent);
+        
+        var randomIndex = Random.Range(0, markerPack.transform.childCount);
+        var chosenMarker = markerPack.transform.GetChild(randomIndex).gameObject;
+        
+        var marker = Instantiate(chosenMarker, position, Quaternion.identity, markerParent);
         marker.SetActive(true);
+        
         activeMarkers.Add(marker);
 
         if (markerMaxCount > 0)
