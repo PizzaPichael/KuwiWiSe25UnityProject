@@ -24,7 +24,7 @@ public class ClickPlane : MonoBehaviour
                 {
                     if (prefabToInstantiate != null)
                     {
-                        Instantiate(prefabToInstantiate, spawnPosition, Quaternion.identity);
+                        Instantiate(prefabToInstantiate, spawnPosition, transform.rotation);
                     }
                 }
             }
