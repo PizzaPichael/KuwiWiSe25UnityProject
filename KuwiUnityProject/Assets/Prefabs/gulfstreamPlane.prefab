@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d4d83b02ee08049bc7c1b99c643e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickPlane
-  prefabToInstantiate: {fileID: 4661275194326576140, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+  prefabToInstantiate: {fileID: 0}
   spawnPosition: {x: 0, y: 0, z: 0}

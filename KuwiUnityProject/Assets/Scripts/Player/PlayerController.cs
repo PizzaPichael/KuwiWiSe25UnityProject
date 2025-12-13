@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float lookSpeed = 5f;
-    public float lookXLimit = 45f;
+    public float lookXLimit = 75f;
 
     private Rigidbody rb;
     private float movementX;
