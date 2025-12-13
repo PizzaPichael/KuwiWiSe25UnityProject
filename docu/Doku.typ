@@ -53,8 +53,4 @@ Im Folgenden einige Punkte, die ich für eine gute Dokumentation empfehle:
 + Fazit: Hier werden die Ergebnisse des Projekts zusammengefasst und eine Aussicht gegeben, wie das Projekt fortgeführt werden könnte.
 
 
-Natürlich könnt ihr auch eine andere Struktur verwenden, wenn diese für euer Projekt sinnvoll ist.
-Verwendet gerne Screenshots von der Anwendung und Code an Stellen, an denen dies Sinn ergibt.
-Von jeder Gruppe brauche ich nur eine Dokumentation. Jedes Mitglied soll erkennbar 5 Seiten (+-1)
-schreiben und hervorheben, was er oder sie zum Projekt beigetragen hat. Mehr als 15 Seiten soll das
-Dokument nicht umfassen.
+Natürlich könnt ihr auch eine andere Struktur verwenden, wenn diese für euer Projekt sinnvoll ist. Verwendet gerne Screenshots von der Anwendung und Code an Stellen, an denen dies Sinn ergibt. Von jeder Gruppe brauche ich nur eine Dokumentation. Jedes Mitglied soll erkennbar 5 Seiten (+-1) schreiben und hervorheben, was er oder sie zum Projekt beigetragen hat. Mehr als 15 Seiten soll das Dokument nicht umfassen.
