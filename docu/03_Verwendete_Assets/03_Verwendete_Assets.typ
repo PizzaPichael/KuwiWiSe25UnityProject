@@ -1,0 +1,1 @@
+= Verwendete Assets und Bibliotheken
