@@ -1,6 +1,12 @@
 #import "@preview/vienna-tech:1.0.0": *
 #import "@preview/wordometer:0.1.4": total-words, word-count
 
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+
+#show: codly-init.with()
+#codly(languages: codly-languages)
+
 #show "Typst": fancy-typst
 #show "LaTeX": fancy-latex
 
