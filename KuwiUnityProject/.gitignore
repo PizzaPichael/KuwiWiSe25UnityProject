@@ -2,6 +2,12 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+
+build
+androidBuild
+Packages/com.ptc.vuforia.engine-11.4.4.tgz
+
 .utmp/
 [Ll]ibrary/
 [Tt]emp/
