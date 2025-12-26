@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
 
         // Get the camera's transform
         cameraTransform = Camera.main.transform;
@@ -50,16 +49,27 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook(InputValue lookValue)
     {
-        Vector2 lookVector = lookValue.Get<Vector2>();
-        rotationX -= lookVector.y * lookSpeed * Time.deltaTime;
-        rotationY += lookVector.x * lookSpeed * Time.deltaTime;
+        if (Mouse.current.rightButton.isPressed)
+        {
+            Vector2 lookVector = lookValue.Get<Vector2>();
+            rotationX -= lookVector.y * lookSpeed * Time.deltaTime;
+            rotationY += lookVector.x * lookSpeed * Time.deltaTime;
 
-        // Clamp the vertical rotation to prevent flipping
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            // Clamp the vertical rotation to prevent flipping
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        }
     }
 
     private void Update()
     {
+        if (Mouse.current.rightButton.isPressed)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Cursor.lockState != CursorLockMode.Confined)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
         // Calculate movement direction relative to the camera's orientation
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
