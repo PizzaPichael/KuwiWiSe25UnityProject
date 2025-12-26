@@ -12,6 +12,8 @@ public static class ListCoordinateMapper
         public float Track;
         public float GroundSpeed;
         public float Altitude;
+        public float Latitude;
+        public float Longitude;
     }
 
     private const float EarthRadiusMeters = 6_371_000f;
@@ -56,7 +58,9 @@ public static class ListCoordinateMapper
                 Position = worldPos,
                 Track = loc.track,
                 GroundSpeed = loc.ground_speed,
-                Altitude = loc.altitude
+                Altitude = loc.altitude,
+                Latitude = (float)latDeg,
+                Longitude = (float)lonDeg
             });
         }
 

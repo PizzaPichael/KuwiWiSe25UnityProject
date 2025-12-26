@@ -9,6 +9,14 @@ public class Airplane : MonoBehaviour
 
     private Coroutine flightRoutine;
     public string TailNumber { get; private set; }
+    public string Type { get; private set; }
+    public string TypeDescription { get; private set; }
+    public float CurrentAltitude { get; private set; }
+    public float CurrentSpeed { get; private set; }
+    public float CurrentHeading { get; private set; }
+    public float CurrentLatitude { get; private set; }
+    public float CurrentLongitude { get; private set; }
+
     private readonly List<GameObject> activeMarkers = new List<GameObject>();
     private int markerInterval = 1;
     private int markerMaxCount = 0;
@@ -16,6 +24,8 @@ public class Airplane : MonoBehaviour
 
     public void Initialize(
         string tailNumber,
+        string type,
+        string typeDescription,
         List<ListCoordinateMapper.MappedLocation> path,
         GameObject markerPack,
         Transform markerParent,
@@ -25,6 +35,8 @@ public class Airplane : MonoBehaviour
         float markerLifetimeSeconds)
     {
         TailNumber = tailNumber;
+        Type = type;
+        TypeDescription = typeDescription;
         if (flightRoutine != null)
         {
             StopCoroutine(flightRoutine);
@@ -83,12 +95,26 @@ public class Airplane : MonoBehaviour
 
                 transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
 
+                // Update current flight data
+                CurrentAltitude = Mathf.Lerp(current.Altitude, next.Altitude, t);
+                CurrentSpeed = Mathf.Lerp(current.GroundSpeed, next.GroundSpeed, t);
+                CurrentHeading = Mathf.Lerp(current.Track, next.Track, t);
+                CurrentLatitude = Mathf.Lerp(current.Latitude, next.Latitude, t);
+                CurrentLongitude = Mathf.Lerp(current.Longitude, next.Longitude, t);
+
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             transform.position = next.Position;
             transform.rotation = targetRot;
+
+            // Set final values for this segment
+            CurrentAltitude = next.Altitude;
+            CurrentSpeed = next.GroundSpeed;
+            CurrentHeading = next.Track;
+            CurrentLatitude = next.Latitude;
+            CurrentLongitude = next.Longitude;
 
             // Drop/activate marker for the point we just reached.
             SpawnMarkerIfNeeded(markerPack, markerParent, i + 1, path.Count, next.Position);
@@ -101,13 +127,13 @@ public class Airplane : MonoBehaviour
 
         bool shouldSpawn = pathIndex % markerInterval == 0 || pathIndex == pathCount - 1;
         if (!shouldSpawn) return;
-        
+
         var randomIndex = Random.Range(0, markerPack.transform.childCount);
         var chosenMarker = markerPack.transform.GetChild(randomIndex).gameObject;
-        
+
         var marker = Instantiate(chosenMarker, position, Quaternion.identity, markerParent);
         marker.SetActive(true);
-        
+
         activeMarkers.Add(marker);
 
         if (markerMaxCount > 0)

@@ -85,7 +85,7 @@ PrefabInstance:
       addedObject: {fileID: 3355927235689888665}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 20a27fbabe0ff364a9b6cdc57c3d091b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5700553270685258337}
+      addedObject: {fileID: 2461119057445002730}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 20a27fbabe0ff364a9b6cdc57c3d091b, type: 3}
 --- !u!1 &1789703080117175837 stripped
 GameObject:
@@ -115,7 +115,7 @@ CapsuleCollider:
   m_Height: 190
   m_Direction: 2
   m_Center: {x: 0, y: 12, z: -12}
---- !u!114 &5700553270685258337
+--- !u!114 &2461119057445002730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d4d83b02ee08049bc7c1b99c643e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickPlane
-  prefabToInstantiate: {fileID: 0}
+  planeDetailsUI: {fileID: 0}
   spawnPosition: {x: 0, y: 0, z: 0}

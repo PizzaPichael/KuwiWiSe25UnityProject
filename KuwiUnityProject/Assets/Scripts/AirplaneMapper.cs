@@ -110,6 +110,8 @@ public class AirplaneMapper : MonoBehaviour
                 activeAirplanes[tailNumber] = airplane;
                 airplane.Initialize(
                     tailNumber,
+                    response.type,
+                    response.type_description,
                     path,
                     markerPack,
                     markersParent == null ? transform : markersParent,
