@@ -730,7 +730,6 @@ GameObject:
   - component: {fileID: 7663524155157873494}
   - component: {fileID: 2482149011821238263}
   - component: {fileID: 3001541306737323707}
-  - component: {fileID: 1741226581993519617}
   m_Layer: 5
   m_Name: PlaneDetailsUI
   m_TagString: Untagged
@@ -803,7 +802,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3001541306737323707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,18 +820,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1741226581993519617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4661275194326576140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4ea893f9daaba43b1a9feb70908f69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CloseUI
 --- !u!1 &5353768006079091426
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,12 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Airplane))]
-public class ClickPlane : MonoBehaviour
+public class ClickPlaneManager : MonoBehaviour
 {
     private static GameObject planeDetailsUI;
     private static Camera mainCamera;
-    private static Airplane selectedAirplane;
 
     private static TextMeshProUGUI headerAndTailNumber;
     private static TextMeshProUGUI flugzeugtypText;
@@ -17,11 +16,15 @@ public class ClickPlane : MonoBehaviour
     private static TextMeshProUGUI latitudeText;
     private static TextMeshProUGUI longitudeText;
 
-    private Airplane airplane;
+
+    private Transform selectedAirplaneTransform;
+    private Transform previousAirplaneTransform;
+    private Airplane selectedAirplane;
+    private Outline selectedOutline;
+    private Outline previousOutline;
 
     private void Awake()
     {
-        airplane = GetComponent<Airplane>();
 
         if (mainCamera == null)
         {
@@ -85,9 +88,9 @@ public class ClickPlane : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (hit.transform == transform)
+                if (hit.transform.CompareTag("airplane"))
                 {
-                    SelectAirplane();
+                    SelectAirplane(hit.transform);
                 }
             }
         }
@@ -98,11 +101,22 @@ public class ClickPlane : MonoBehaviour
         }
     }
 
-    private void SelectAirplane()
+    private void SelectAirplane(Transform hitTransform)
     {
         if (planeDetailsUI == null) return;
 
-        selectedAirplane = airplane;
+        if (selectedAirplaneTransform != null && selectedAirplaneTransform != hitTransform)
+        {
+            previousAirplaneTransform = selectedAirplaneTransform;
+            previousOutline = selectedOutline;
+            SetOutline(previousOutline, false);
+        }
+
+        selectedAirplaneTransform = hitTransform;
+        selectedAirplane = selectedAirplaneTransform.GetComponent<Airplane>();
+        selectedOutline = selectedAirplaneTransform.GetComponent<Outline>();
+
+        SetOutline(selectedOutline, true);
 
         if (!planeDetailsUI.activeInHierarchy)
         {
@@ -112,7 +126,15 @@ public class ClickPlane : MonoBehaviour
         UpdateUI();
     }
 
-    private static void UpdateUI()
+    private void SetOutline(Outline outline, bool boolVal)
+    {
+        if (outline != null)
+        {
+            outline.enabled = boolVal;
+        }
+    }
+
+    private void UpdateUI()
     {
         if (selectedAirplane == null) return;
 
