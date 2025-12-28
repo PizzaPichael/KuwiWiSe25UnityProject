@@ -1,0 +1,32 @@
+@startuml Models
+' avoid problems with angled crows feet
+skinparam linetype ortho
+' hide the (E) demarcation on entities
+' hide circle
+
+class Airplane {
+    id: int <<PK>>
+    type: str
+    tail_number: datetime
+    type_description: datetime
+}
+
+class Location {
+    id: int <<PK>>
+    latitude: number
+    longitude: number
+    ground_speed: number
+    track: number
+    altitude: number
+    time: datetime
+    airplane: Airplane <<FK>>
+}
+
+class Type {
+    id: int <<PK>>
+    type: str
+}
+
+Airplane *-- Location
+
+@enduml
