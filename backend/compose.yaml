@@ -1,0 +1,61 @@
+services:
+  web:
+    build: .
+    entrypoint: ["/app/entrypoint.sh"]
+    env_file: .env
+    networks: [appnet]
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+  worker:
+    build: .
+    command: celery -A plane_api worker --loglevel=info
+    env_file: .env
+    networks: [appnet]
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+  beat:
+    build: .
+    command: celery -A plane_api beat --loglevel=info
+    env_file: .env
+    networks: [appnet]
+    depends_on:
+      worker:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    networks: [appnet]
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [appnet]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  pgdata:
+
+networks:
+  appnet:
