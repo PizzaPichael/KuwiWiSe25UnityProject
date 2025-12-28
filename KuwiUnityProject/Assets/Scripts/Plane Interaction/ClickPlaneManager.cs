@@ -1,24 +1,24 @@
-using System;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ClickPlaneManager : MonoBehaviour
 {
-    private static GameObject planeDetailsUI;
-    private static Camera mainCamera;
+    private GameObject planeDetailsUI;
+    private Camera mainCamera;
+    [SerializeField] private Button closeButton;
 
-    private static TextMeshProUGUI headerAndTailNumber;
-    private static TextMeshProUGUI flugzeugtypText;
-    private static TextMeshProUGUI heightText;
-    private static TextMeshProUGUI speedText;
-    private static TextMeshProUGUI headingText;
-    private static TextMeshProUGUI latitudeText;
-    private static TextMeshProUGUI longitudeText;
+    private TextMeshProUGUI headerAndTailNumber;
+    private TextMeshProUGUI flugzeugtypText;
+    private TextMeshProUGUI heightText;
+    private TextMeshProUGUI speedText;
+    private TextMeshProUGUI headingText;
+    private TextMeshProUGUI latitudeText;
+    private TextMeshProUGUI longitudeText;
 
 
     private Transform selectedAirplaneTransform;
-    private Transform previousAirplaneTransform;
     private Airplane selectedAirplane;
     private Outline selectedOutline;
     private Outline previousOutline;
@@ -41,10 +41,15 @@ public class ClickPlaneManager : MonoBehaviour
             }
 
             CacheTextComponents();
+
+            if (closeButton != null)
+            {
+                closeButton.onClick.AddListener(OnPlaneDetailsCloseButtonClick);
+            }
         }
     }
 
-    private static void CacheTextComponents()
+    private void CacheTextComponents()
     {
         Transform flightComputerImage = planeDetailsUI.transform.Find("FlightComputerImage");
         if (flightComputerImage == null)
@@ -70,7 +75,7 @@ public class ClickPlaneManager : MonoBehaviour
         longitudeText = FindTextComponent(infoSection, "LongtitudeText");
     }
 
-    private static TextMeshProUGUI FindTextComponent(Transform parent, string childName)
+    private TextMeshProUGUI FindTextComponent(Transform parent, string childName)
     {
         Transform child = parent.Find(childName);
         if (child == null)
@@ -107,7 +112,6 @@ public class ClickPlaneManager : MonoBehaviour
 
         if (selectedAirplaneTransform != null && selectedAirplaneTransform != hitTransform)
         {
-            previousAirplaneTransform = selectedAirplaneTransform;
             previousOutline = selectedOutline;
             SetOutline(previousOutline, false);
         }
@@ -126,6 +130,11 @@ public class ClickPlaneManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void OnPlaneDetailsCloseButtonClick()
+    {
+        SetOutline(selectedOutline, false);
+    }
+
     private void SetOutline(Outline outline, bool boolVal)
     {
         if (outline != null)
@@ -133,6 +142,8 @@ public class ClickPlaneManager : MonoBehaviour
             outline.enabled = boolVal;
         }
     }
+
+
 
     private void UpdateUI()
     {

@@ -872,6 +872,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
+--- !u!114 &881399001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+  m_PrefabInstance: {fileID: 1858553475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1087463640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082262205622012052, guid: 1d8c9b34810dc41c6b3093e3e1cb27d4, type: 3}
@@ -1090,6 +1101,51 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2130006547}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
+--- !u!1 &1248816519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248816521}
+  - component: {fileID: 1248816520}
+  m_Layer: 0
+  m_Name: ClickPlaneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1248816520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248816519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d4d83b02ee08049bc7c1b99c643e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickPlaneManager
+  closeButton: {fileID: 881399001}
+--- !u!4 &1248816521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248816519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32764, y: 0.76645, z: -3.65466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576385148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1233,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 385290848}
     m_Modifications:
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 51d4d83b02ee08049bc7c1b99c643e58, type: 3}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEditor.MonoScript, UnityEditor.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: DeactivateOutlineFromButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314609446395589378, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2482149011821238263, guid: 3ae95f49054514541b2883307cdd3b1e, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -1777,3 +1865,4 @@ SceneRoots:
   - {fileID: 284524957}
   - {fileID: 481925410532585461}
   - {fileID: 1576385151}
+  - {fileID: 1248816521}
