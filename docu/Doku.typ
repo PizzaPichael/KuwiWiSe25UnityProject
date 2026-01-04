@@ -62,17 +62,25 @@ Im Folgenden einige Punkte, die ich für eine gute Dokumentation empfehle:
 Natürlich könnt ihr auch eine andere Struktur verwenden, wenn diese für euer Projekt sinnvoll ist. Verwendet gerne Screenshots von der Anwendung und Code an Stellen, an denen dies Sinn ergibt. Von jeder Gruppe brauche ich nur eine Dokumentation. Jedes Mitglied soll erkennbar 5 Seiten (+-1) schreiben und hervorheben, was er oder sie zum Projekt beigetragen hat. Mehr als 15 Seiten soll das Dokument nicht umfassen.
 
 #include "01_Einleitung/01_Einleitung.typ"
+(Micha David)
 
 #include "02_Systemanforderungen/02_Systemanforderungen.typ"
+(David)
 
 #include "03_Verwendete_Assets/03_Verwendete_Assets.typ"
+(Micha)
 
 #include "04_Interaktion/04_Interaktion.typ"
+(Micha)
 
 #include "05_Design_der_Benutzeroberflaechen/05_Design_der_Benutzeroberflaechen.typ"
+(Micha)
 
 #include "06_Technische_Dokumentation/06_Technische_Dokumentation.typ"
+(David)
 
 #include "07_Problemlösung/07_Problemlösung.typ"
+(Micha David)
 
 #include "08_Fazit/08_Fazit.typ"
+(Micha David)
