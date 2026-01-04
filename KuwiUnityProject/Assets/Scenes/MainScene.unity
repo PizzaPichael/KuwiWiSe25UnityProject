@@ -844,7 +844,7 @@ MonoBehaviour:
   - N606QS
   - N856QS
   usePopularFromApi: 1
-  popularCount: 3
+  popularCount: 10
 --- !u!4 &855700847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6122996341094534880, guid: 73873d87b37e844c7878826c3039e02f, type: 3}
@@ -1019,8 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08749f14ef6d65f4aa0a1235fe6e0cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 3
-  lookSpeed: 3
+  moveSpeed: 0.5
+  lookSpeed: 60
   lookXLimit: 75
 --- !u!1001 &1152238161
 PrefabInstance:
