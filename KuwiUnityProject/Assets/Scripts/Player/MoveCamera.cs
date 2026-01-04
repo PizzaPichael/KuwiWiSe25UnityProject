@@ -49,10 +49,13 @@ public class CameraMovement : MonoBehaviour
 
         if (canMove)
         {
-            rotationX += -Mouse.current.delta.y.ReadValue() * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Mouse.current.delta.x.ReadValue() * lookSpeed, 0);
+            if (Mouse.current != null && Mouse.current.rightButton.isPressed)
+            {
+                rotationX += -Mouse.current.delta.y.ReadValue() * lookSpeed;
+                rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+                playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+                transform.rotation *= Quaternion.Euler(0, Mouse.current.delta.x.ReadValue() * lookSpeed, 0);
+            }
         }
         #endregion
     }

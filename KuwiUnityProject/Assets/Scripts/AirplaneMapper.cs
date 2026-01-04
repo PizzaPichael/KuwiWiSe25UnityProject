@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AirplaneMapper : MonoBehaviour
 {
     [Header("Prefabs & Parents")]
     [SerializeField] private GameObject airplanePrefab;
+    [SerializeField] private float planeScale = 0.02f;
+    [SerializeField] private Vector3 planePosiotionOffset = new Vector3(0, 0, 0);
+    [SerializeField] private Quaternion planeRotationOffset = new Quaternion(0, 0, 0, 0);
     [SerializeField] private GameObject markerPack;
     [SerializeField] private Transform airplanesParent;
     [SerializeField] private Transform markersParent;
@@ -85,6 +89,12 @@ public class AirplaneMapper : MonoBehaviour
                 }
 
                 var airplaneGO = Instantiate(airplanePrefab, airplanesParent == null ? transform : airplanesParent);
+                airplaneGO.transform.position = planePosiotionOffset;
+                Debug.Log("InitRotation: " + airplaneGO.transform.rotation);
+                airplaneGO.transform.rotation = airplaneGO.transform.rotation * planeRotationOffset;
+                Debug.Log("AdjsutedRotation: " + airplaneGO.transform.rotation);
+
+                airplaneGO.transform.localScale *= planeScale;
                 if (!airplaneGO.activeSelf)
                 {
                     airplaneGO.SetActive(true);
@@ -100,6 +110,8 @@ public class AirplaneMapper : MonoBehaviour
                 activeAirplanes[tailNumber] = airplane;
                 airplane.Initialize(
                     tailNumber,
+                    response.type,
+                    response.type_description,
                     path,
                     markerPack,
                     markersParent == null ? transform : markersParent,
