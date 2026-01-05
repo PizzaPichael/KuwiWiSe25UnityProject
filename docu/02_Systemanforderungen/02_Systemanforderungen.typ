@@ -1,21 +1,26 @@
 = Systemanforderungen
 
 == Hardware
-- Smartphone mit Kamera (Android oder iOS) für die AR-Anzeige.
-- Entwicklungsrechner mit GPU-beschleunigter Unity-Editor-Unterstützung; 16 GB RAM empfohlen.
+=== Unity Anwendung
+Zum Ausführen der Anwendung wird ein Grafikfähiger Windows-PC benötigt. Die grafischen Anforderungen der Anwendung sind gering und erfordern keine besonders starke Hardware. Falls die Anwendung direkt im Unity Editor ausgeführt werden soll, wird die Unity Version 6000.2.8f1 benötigt. Andernfalls wird zum ausführen der Anwendung keine externe Software benötigt.
 
-== Software
-- Unity 6000.2.8f1 (Unity 6) inkl. Android/iOS Build Support.
-- Vuforia Engine (AR-Tracking via Image-Target), TextMeshPro, glTFast (für glTF-Import falls benötigt).
-- Python >= 3.12, Django 5.2, Django REST Framework, Celery 5.5 mit RabbitMQ, Postgres 16 (alternativ SQLite für lokal).
-- Docker + Docker Compose für reproduzierbare Backends (Services: web, worker, beat, rabbitmq, db).
+Es wird eine Internetverbindung vorrausgesetzt, da die Daten die von der Anwendung vom Backend über das Internet bereitgestellt werden.
 
-== Umgebungsvariablen (Backend)
-- `DATABASE_URL` (Postgres-URL) oder Default: SQLite.
-- `CELERY_BROKER_URL` (Default: amqp://guest:guest@localhost:5672//).
-- `CELERY_RESULT_BACKEND` (Default: django-db).
-- `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`, `DEBUG` für Deployment.
-
-== Netz
-- Internetzugriff auf https://api.airplanes.live/ (Live-Daten).
-- Lokale Ports: 8000 (Django/Swagger), 5672 (RabbitMQ), 5432 (Postgres in Docker).
+=== Backend
+Für das Django-Backend wird ein Server mit statischer IP-Adresse benötigt, welcher in der lage ist Python virtual-environments in der Version `3.12` auszuführen. Alternativ kann das Backend auch direkt (wie im deployment) per Docker-container ausgeführt werden. Folgende python-dependencies zum Ausführen des Backends benötigt:
+```py
+"celery>=5.5.3",
+"django>=5.2.8",
+"django-celery-beat>=2.8.1",
+"django-celery-results>=2.6.0",
+"django-debug-toolbar>=6.1.0",
+"django-filter>=25.2",
+"djangorestframework>=3.16.1",
+"markdown>=3.10",
+"python-dotenv>=1.2.1",
+"requests>=2.32.5",
+"psycopg[binary]>=3.2",
+"gunicorn>=23.0.0",
+"whitenoise>=6.6.0",
+"drf-yasg>=1.21.11",
+```
