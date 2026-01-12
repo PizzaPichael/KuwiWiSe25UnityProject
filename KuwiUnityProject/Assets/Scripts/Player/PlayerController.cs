@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 60f;
     public float lookXLimit = 75f;
 
+    private CharacterController controller;
     private float movementX;
     private float movementZ;
     private float movementY;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        controller = GetComponent<CharacterController>();
+
         // Get the camera's transform
         cameraTransform = Camera.main.transform;
     }
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
         // Combine movement directions
         Vector3 movement = (forward * movementZ + right * movementX + Vector3.up * movementY) * moveSpeed * Time.deltaTime;
 
-        transform.position += movement;
+        controller.Move(movement);
 
         // Rotate the player horizontally
         transform.localRotation = Quaternion.Euler(0, rotationY, 0);
