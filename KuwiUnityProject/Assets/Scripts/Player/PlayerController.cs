@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float lookSpeed = 5f;
+    public float moveSpeed = 0.5f;
+    public float lookSpeed = 60f;
     public float lookXLimit = 75f;
 
-    private Rigidbody rb;
     private float movementX;
     private float movementZ;
     private float movementY;
@@ -22,8 +21,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-
         // Get the camera's transform
         cameraTransform = Camera.main.transform;
     }
@@ -81,7 +78,7 @@ public class PlayerController : MonoBehaviour
         // Combine movement directions
         Vector3 movement = (forward * movementZ + right * movementX + Vector3.up * movementY) * moveSpeed * Time.deltaTime;
 
-        rb.MovePosition(rb.position + movement);
+        transform.position += movement;
 
         // Rotate the player horizontally
         transform.localRotation = Quaternion.Euler(0, rotationY, 0);
