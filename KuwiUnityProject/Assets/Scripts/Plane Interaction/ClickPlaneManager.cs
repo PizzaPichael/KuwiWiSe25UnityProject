@@ -164,7 +164,15 @@ public class ClickPlaneManager : MonoBehaviour
 
         if (heightText != null)
         {
-            heightText.text = $"Height: {selectedAirplane.CurrentAltitude:F0} ft";
+            if (selectedAirplane.CurrentAltitude != -1)
+            {
+                heightText.text = $"Height: {selectedAirplane.CurrentAltitude:F0} ft";
+            }
+            else
+            {
+                heightText.text = $"Height: On Ground";
+            }
+
         }
 
         if (speedText != null)
