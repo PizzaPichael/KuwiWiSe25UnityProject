@@ -106,3 +106,4 @@ ServerData/
 [Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 KuwiUnityProject/Packages/com.ptc.vuforia.engine-11.4.4.tgz
+.github/copilot-instructions.md
