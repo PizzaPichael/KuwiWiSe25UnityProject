@@ -84,3 +84,5 @@ Natürlich könnt ihr auch eine andere Struktur verwenden, wenn diese für euer 
 
 #include "08_Fazit/08_Fazit.typ"
 (Micha David)
+
+#bibliography("09_Bibliography/09_Bibliography.bib")
