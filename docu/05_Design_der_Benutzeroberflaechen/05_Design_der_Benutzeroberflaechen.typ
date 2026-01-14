@@ -1,15 +1,7 @@
 = Design der Benutzeroberflächen
 
-== Gestaltungsprinzipien
-- Der Globus ist zentraler Anker: schwebend über dem Marker, klare Tag/Nacht-Beleuchtung und dezentes Atmosphären-Highlight.
-- Marker sind leichtgewichtig, kontrastreich und zufällig gewählt, damit sich Pfade visuell unterscheiden, ohne das Bild zu überladen.
-- UI bleibt minimal: nur die nötigsten Controls (Speed-Slider, Debug-Kamera-Hinweis) werden eingeblendet, wenn Tracking aktiv ist.
-
-== Typografie & Farben
-- TextMeshPro mit klarer Sans-Schrift; hohe Lesbarkeit auf hellem/transparentem Hintergrund.
-- Globus-Material aus EarthRendering Free (Erde + Atmosphäre); Marker nutzen kräftige Farben für bessere Sichtbarkeit auf dem dunklen Meer.
-
-== AR-spezifische Entscheidungen
-- Canvas wird per Tracking-Events ein- und ausgeblendet, um UI-Flackern zu vermeiden, wenn das Target kurz verloren geht.
-- Zeitkompression per Inspector-Parameter statt UI-Button, um die Fläche im AR-View minimal zu halten; Slider nur für Globe-Rotation.
-- Kamera-Offset und Globe-Radius sind so gewählt, dass das Modell nicht in den Marker hineinragt und trotzdem im Sichtfeld bleibt.
+Zu Beginn des Projektes war für uns direkt klar, dass wir einen LowPoly-Look verfolgen wollten.
+Leider ließ sich für die Erdkugel kein passendes Asset im Low-Poly-Look finden, bei dem die Skalierung des Assets so möglich gewesen wäre, wie wir es für die Anzeige der Flugzeugrouten benötigten. Wir haben vor allem versucht, die Skalierung der Flugzeuge und Routen zu priorisieren, sodass sie einerseits so weit auseinander dargestellt werden, dass einzelne Routen klar erkennbar sind, und andererseits nah genug beieinander sind, sodass Nutzende sich nicht mit weit zurückzulegenden Strecken mittels Kamerabewegung um ein zu großes Erdasset konfrontiert sehen.
+Dabei traten markante Eigenschaften der LowPoly-Assets zu sehr hervor, sodass diese hinderlich in der Anzeige der Flugzeuge waren und diese verdeckt.\
+Deshalb haben wir uns für ein doch recht detailliertes Erdasset entschieden. Da die Erdkugel das markanteste und auffälligste Asset in unserem Projekt ist, stellt dieses natürlich sofort einen Kontrast zu dem anfänglich von uns verfolgten Low-Poly-Stil dar. Nur das Flugzeug-Asset sowie die Wolken sind weiterhin im Low-Poly-Stil gehalten.\
+Das Design ist insofern nicht schlüssig. Durch die Nutzung von High- und Low-Poly-Assets erscheint hier im Stil keine erkennbare Gemeinsamkeit. Auch das UI für die Flugdaten hebt sich durch seine zweidimensionale Natur und höheren Detailgrad vom LowPoly-Stil ab und trägt zu einem unstimmigen Designbild bei. Grund dafür ist, dass wir vor allem die technische Machbarkeit hervorheben wollten, Privatflugzeuge zu tracken und zu visualisieren. Da es uns beiden an Erfahrung im Bereich Design fehlt, haben wir uns vorerst für diese provisorische Designstrategie entschieden.

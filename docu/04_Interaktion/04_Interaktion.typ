@@ -1,13 +1,7 @@
 = Interaktion
 
-== Ablauf für Nutzende
-- Bildmarker scannen: Kamera auf das Image-Target richten; das 3D-Globus-Setup erscheint an der Marker-Position.
-- Globe beobachten: Flugzeugmodelle folgen ihrer aufgezeichneten Route über dem Globus; Marker zeigen Wegpunkte.
-- UI ein-/ausblenden: Canvas wird automatisch mit Tracking aktiv/inaktiv geschaltet (`ShowHideUI`).
-- Geschwindigkeit anpassen: Slider steuert Rotationsspeed des Globus (`SpinObject`); Zeitkompression der Routen ist im Inspector konfigurierbar.
-- Freie Kamera (Debug/Editor): `CameraMovement` erlaubt WASD + Maus-Look + vertikale Bewegung, um die Szene ohne AR zu inspizieren.
-
-== Datenfluss
-- App lädt beim Start die beliebtesten Flugzeuge (oder vordefinierte Tail Numbers) aus dem Backend (`CoordinateFetcher`).
-- Für jedes Flugzeug wird die Positionshistorie geholt, nach Weltkoordinaten gemappt und abgespielt (`AirplaneMapper` → `Airplane`).
-- Marker werden in regelmäßigen Abständen entlang der Route gespawnt und automatisch begrenzt, damit die Szene performant bleibt.
+Die Interaktion erfolgt vorerst auf einem Computer mittels Maus und Tastatur. Es gibt mehrere Möglichekiten mit der Szene zu interagieren:
+- *Kamera bewegen*: Mit den WASD-Tasten kann die Kamera auf einer 2D-Ebene (vor, zurück, links, rechts) durch die Szene bewegt werden. Die Leertaste und STRG-Taste fügen dazu Bewegung nach oben und unten hinzu wodurch sich Nutzende im kompletten 3D-Raum bewegen können.
+- *Kamera Drehung & Neigung*: Mittels Mausbewegung können Nutzende die Kamera, zusätzlich zur Bewegung, Neigen und Drehen. Die Drehung der Kamera kann in 360° um den Mittelpunkt der Kamera erfolgen. Dafür muss die Maus, von der Oberfläche aus gesehen auf der sie aufliegt, horizontal bewegt werden. Mittels vertikaler Mausbewegung lässt sich die Kamera neigen. Die Neigung ist nur in einem Winkel von max. 90° um die X-Achse der Kamera möglich um zu verhinden, dass sich die Kamera überschlägt.
+- *Moduswechsel zwischen Bewegung und UI*: Da es gleichzeitig möglich sein sollte mittels Maus die Kamera zu bedienen sowie mit dem UI zu interagieren, existieren zwei Modi für die Interaktion durch die Maus. Der Standardmodus ist der UI-Modus, bei diesem ist der Mauscursor sichtbar und es kann mit dem UI interagiert werden. Der Bewegungsmodus lässt sich durch Drücken und Halten der rechten Maustaste aktivieren. Im Bewegungsmodus ist es dann möglich die Kamera wie oben beschrieben zu steuern. Der Mauscursor wird dabei ausgeblendet.
+- *Flugzeugauswahl*: Im Bewegungsmodus und UI-Modus wird in der Mitte des Bildschirms ein Fadenkreuz angezeigt. Dieses besteht aus einem Orangenen Punkt. Im Bewegungsmodus können  mit dem Fadenkreuz auf dem Globus spawnende Flugzeuge angewählt werden. Das ausgewählte Flugzeug wird dann durch eine farbliche Umrandung hervorgehoben. Zusätzlich erscheint ein UI-Element in Form eines Flugcomputerbildschirms in der linken oberen Ecke der Szene. In diesem lassen sich aktuelle Flugdaten wie z.B. Flugzeugkennung, Höhe und Geschwindigkeit des ausgewählten Flugzeugs einsehen. Lässt man die rechte Maustaste los und wechselt so aus dem Bewegungsmodus in den UI-Modus, kann das Computer-UI-Element über einen im Element befindlichen Button geschlossen werden. Alternativ kann im Bewegungsmodus ein anderes Flugzeug ausgewählt werden. Die farbliche Umrandung wird nun für dieses Flugzeug angewendet und dessen Daten werden im Computer-UI-Element angezeigt.
