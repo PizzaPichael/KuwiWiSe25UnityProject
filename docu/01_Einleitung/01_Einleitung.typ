@@ -12,6 +12,22 @@ Vorallem aufgrund der Schwierigkeit Flugdaten generell allumfänglich abzufragen
 
 Am Ende des Projektes steht nun eine Visualisierung von Flugdaten am Computer, der Flugzeugtypen, die am ehesten mit Privatflügen assoziiert werden. Gesammelt und gespeichert wurden diese Flugdaten mittels eines selbstgebauten Django Backends, das über eine REST-API die Flugdaten abgefragt, nach Flugzeugtypen filtert und in einer eigens erstellten Datenbank speichert. Diese Dokumentation erläutert Aufbau und Funktion der Visualisierung sowie des Backends.
 
+== Aufgabenverteilung
+- Michael:
+  - Asset Recherche
+  - Recherche nach Flugdaten APIs
+  - Gestaltung der Unity Szene
+  - Implementierung des UI und der Anzeige der Flugzeugdetails
+  - Implementierung der Flugzeugauswahl
+  - Implementierung der Player-Controlls
+- David
+  - Asset Recherche
+  - Recherche nach Flugdaten APIs
+  - Implementierung des Django Backends
+  - Implementierung der API Kommunikation
+  - Implementierung der Datenstruktur/Datenbank
+  - Implementierung der Datenvisualisierung in Unity
+
 /*
 Dieses Projekt kombiniert eine Django-REST-API mit einer Unity-AR-Anwendung auf dem Smartphone. Die Backend-Pipeline sammelt regelmäßig Positionsdaten privater Flugzeuge von airplanes.live, speichert sie in einer Postgres/SQLite-Datenbank und stellt sie per API bereit. Die Unity-App nutzt Vuforia, um ein schwebendes 3D-Globus-Modell über ein Image-Target zu platzieren und spielt darauf Flugrouten samt Markern ab.
 
