@@ -91,11 +91,10 @@
 
 ]
 #figure(
-  image("../docu/assets/Models.png", width: 73%),
+  image("./assets/Models.png", width: 80%),
   caption: [Datenmodell]
 )
 ]
-
 
 
 == Unity Anwendung

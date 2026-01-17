@@ -1,12 +1,11 @@
 = Technische Dokumentation
 
 == Backend
-
-Zum sammeln und bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammlen wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zusehen wurde zum speichern der abgefragen Daten wurde ein simples Datenbankmodell entwickelt. 
+Zum sammeln und bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammlen wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zusehen wurde zum speichern der abgefragen Daten wurde ein simples Datenbankmodell entwickelt.
 
 #figure(
-  caption: [Datamodel],
-  image("../assets/Models.png", width: 30%)
+  caption: [Relationales Daten-Modell],
+  image("../assets/Models.png", width: 50%)
 )<datamodel>
 
 Das Python package `Celery` wird verwendet um Tasks asynchron auszuführen. Wir verwenden den Celery Task Scheduler `Beat` um in regelmäßigen Zeitintervallen die Abfragen durchzuführen. Wie in @celery_beat_schedule zu sehen, fragen wir die API alle 5 Minuten ab.

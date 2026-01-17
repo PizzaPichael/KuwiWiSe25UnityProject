@@ -27,7 +27,7 @@ class Type {
     type: str
 }
 
-Airplane *-r- Location
+Airplane *-- Location
 Type *-r- Airplane
 
 @enduml
