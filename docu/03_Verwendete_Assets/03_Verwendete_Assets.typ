@@ -8,7 +8,7 @@ Für das Projekt nutzen wir folgende Assets:
 - *Milkyway Skybox* @sky-box: Bild eines Milchstraßen Panoramas, das, auf eine Kugel projeziert, als Skybox der Scene genutzt wird.
 
 == Unity Packages
-Folgende Packeges haben wir über den Unity-Pacakge-Manager in unser Projekt integriert:
+Folgende Packages haben wir über den Unity-Package-Manager in unser Projekt integriert:
 - *Vuforia Engine*: Image-Target-Tracking als Anker für den schwebenden Globus.
 - *TextMeshPro*: Hinzufügen von UI-Schrift Elementen.
 - *EarthRendering Free* : stellt das 3D Asset des Erdballs<earthrendering>.

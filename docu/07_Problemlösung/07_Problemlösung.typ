@@ -1,4 +1,4 @@
-= Problemlösung
+= Problemlösung <Problemlösung>
 
 Im Rahmen der Implementierung ergaben sich verschiedene technische Herausforderungen bezüglich der API-Nutzung, der Performance und der Datenqualität, die durch gezielte Maßnahmen adressiert wurden.
 
