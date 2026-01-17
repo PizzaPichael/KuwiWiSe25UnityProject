@@ -65,11 +65,27 @@
 
 = Technische Umsetzung und Besonderheiten
 == Backend
-\
+
+#columns(2)[
 #mytext[
-- Datenerhebung
-- Implementierung
+- Django Python-Framework
+
+- Rest-API zum abfragen der gesammelten Flugdaten
+
+- Django-Rest-Framework
+  - vorimplementierte API-Views
+
+- Celery-Beat Task scheduler
+
+- Regelmäßige Abfrage der Airplanes.live API
+
 ]
+#figure(
+  image("../docu/assets/Models.png", width: 73%),
+  caption: [Datenmodell]
+)
+]
+
 
 
 == Unity Anwendung
@@ -88,4 +104,9 @@
 \
 #mytext[
 - API-Ratenbegrenzung und Datenbereinigung
+- Marker-Performance und Unübersichtlichkeit
+- Zeitseriendaten und Visualisierung
+- Abdeckung der ADS-B Daten
 ]
+
+= Vielen Dank für Ihre Aufmerksamkeit!
