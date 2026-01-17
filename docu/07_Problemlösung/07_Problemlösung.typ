@@ -16,3 +16,6 @@
 
 == AR-UX
 - Issue: UI flackerte beim Verlust des Targets. Lösung: Canvas aktiv/inaktiv via `ShowHideUI` auf Tracking-Events.
+
+== Zeitseriendaten
+- Die Daten waren extrem in die länge gezogen wenn man sie entsprechend ihrerer Beobachtungszeit angezeigt hat. Hier haben wir uns dazu entschlossen, alle gesammelten Daten zum selben Zeitpunkt anzuzeigen.
