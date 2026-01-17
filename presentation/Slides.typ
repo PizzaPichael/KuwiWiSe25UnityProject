@@ -34,12 +34,22 @@
 ]
 
 #pagebreak()
-#figure(
-  image("assets/ElonJet.png", width: 39%),
-  caption: [
-    ElonJet
-  ],
-)
+#columns(2)[
+  #figure(
+    image("assets/ElonJet.png", width: 80%),
+    caption: [
+      ElonJet
+    ],
+  )
+  #align(horizon)[
+    #figure(
+      image("assets/ElonJetFuelUsage.png", width: 100%),
+      caption: [
+        ElonJet
+      ],
+    )
+  ]
+]
 
 
 == Architects of the Apocalypse
