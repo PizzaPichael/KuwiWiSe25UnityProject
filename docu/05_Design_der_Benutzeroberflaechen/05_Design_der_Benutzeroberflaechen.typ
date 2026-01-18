@@ -1,4 +1,4 @@
-= Design der Benutzeroberflächen
+= Design der Benutzeroberflächen <UiDesign>
 
 Zu Beginn des Projektes war für uns direkt klar, dass wir einen LowPoly-Look verfolgen wollten.
 Leider ließ sich für die Erdkugel kein passendes Asset im Low-Poly-Look finden, bei dem die Skalierung des Assets so möglich gewesen wäre, wie wir es für die Anzeige der Flugzeugrouten benötigten. Wir haben vor allem versucht, die Skalierung der Flugzeuge und Routen zu priorisieren, sodass sie einerseits so weit auseinander dargestellt werden, dass einzelne Routen klar erkennbar sind, und andererseits nah genug beieinander sind, sodass Nutzende sich nicht mit weit zurückzulegenden Strecken mittels Kamerabewegung um ein zu großes Erdasset konfrontiert sehen.

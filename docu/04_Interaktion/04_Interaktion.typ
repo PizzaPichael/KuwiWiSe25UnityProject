@@ -1,4 +1,4 @@
-= Interaktion
+= Interaktion <Interaktion>
 
 Die Interaktion erfolgt vorerst auf einem Computer mittels Maus und Tastatur. Es gibt mehrere Möglichekiten mit der Szene zu interagieren:
 - *Kamera bewegen*: Mit den WASD-Tasten kann die Kamera auf einer 2D-Ebene (vor, zurück, links, rechts) durch die Szene bewegt werden. Die Leertaste und STRG-Taste fügen dazu Bewegung nach oben und unten hinzu wodurch sich Nutzende im kompletten 3D-Raum bewegen können.

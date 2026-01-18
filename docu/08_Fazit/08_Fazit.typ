@@ -1,4 +1,4 @@
-= Fazit
+= Fazit <Fazit>
 
 Das Projekt erreicht sein Ziel, Live-Flugrouten privater Maschinen auf einem AR-Globus sichtbar zu machen. Die Pipeline aus Celery-Worker, Django-API und Unity-Client funktioniert end-to-end: Daten werden regelmäßig gezogen, gespeichert und in der App als animierte Trajektorien mit Markern dargestellt.
 

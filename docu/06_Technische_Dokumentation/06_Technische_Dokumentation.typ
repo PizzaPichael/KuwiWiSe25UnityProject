@@ -1,4 +1,4 @@
-= Technische Dokumentation
+= Technische Dokumentation <TechnischeDoku>
 
 == Backend
 Zum sammeln und bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammlen wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zusehen wurde zum speichern der abgefragen Daten wurde ein simples Datenbankmodell entwickelt.

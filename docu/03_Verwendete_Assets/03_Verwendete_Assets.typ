@@ -1,4 +1,4 @@
-= Verwendete Assets und Bibliotheken
+= Verwendete Assets und Bibliotheken <VerwendeteAssets>
 == Assets
 Für das Projekt nutzen wir folgende Assets:
 - *Earth*: eine 3D Repräsentation der Erde, um die herum die Flugzeuge fliegen sollen, Quelle siehe 4.2 Unity Packages, EarthRendering Free
