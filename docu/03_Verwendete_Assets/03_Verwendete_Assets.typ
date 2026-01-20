@@ -9,7 +9,6 @@ Für das Projekt nutzen wir folgende Assets:
 
 == Unity Packages
 Folgende Packages haben wir über den Unity-Package-Manager in unser Projekt integriert:
-- *Vuforia Engine*: Image-Target-Tracking als Anker für den schwebenden Globus.
 - *TextMeshPro*: Hinzufügen von UI-Schrift Elementen.
 - *EarthRendering Free* : stellt das 3D Asset des Erdballs<earthrendering>.
 - *glTFast* (optional): Import von glTF-Modellen.

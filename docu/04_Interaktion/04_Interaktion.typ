@@ -1,6 +1,8 @@
 = Interaktion <Interaktion>
 
-Die Interaktion erfolgt vorerst auf einem Computer mittels Maus und Tastatur. Es gibt mehrere Möglichekiten mit der Szene zu interagieren:
+Die Interaktion erfolgt vorerst auf einem Computer mittels Maus und Tastatur.
+Im Hauptmenü wird per Maus interagiert, wodurch sich mit der linken Maustaste die Buttons des Menüs anwählen lassen.
+Was die Tracker-Szene angeht gibt es mehrere Möglichekiten mit dieser zu interagieren:
 - *Kamera bewegen*: Mit den WASD-Tasten kann die Kamera auf einer 2D-Ebene (vor, zurück, links, rechts) durch die Szene bewegt werden. Die Leertaste und STRG-Taste fügen dazu Bewegung nach oben und unten hinzu wodurch sich Nutzende im kompletten 3D-Raum bewegen können.
 - *Kamera Drehung & Neigung*: Mittels Mausbewegung können Nutzende die Kamera, zusätzlich zur Bewegung, Neigen und Drehen. Die Drehung der Kamera kann in 360° um den Mittelpunkt der Kamera erfolgen. Dafür muss die Maus, von der Oberfläche aus gesehen auf der sie aufliegt, horizontal bewegt werden. Mittels vertikaler Mausbewegung lässt sich die Kamera neigen. Die Neigung ist nur in einem Winkel von max. 90° um die X-Achse der Kamera möglich um zu verhinden, dass sich die Kamera überschlägt.
 - *Moduswechsel zwischen Bewegung und UI*: Da es gleichzeitig möglich sein sollte mittels Maus die Kamera zu bedienen sowie mit dem UI zu interagieren, existieren zwei Modi für die Interaktion durch die Maus. Der Standardmodus ist der UI-Modus, bei diesem ist der Mauscursor sichtbar und es kann mit dem UI interagiert werden. Der Bewegungsmodus lässt sich durch Drücken und Halten der rechten Maustaste aktivieren. Im Bewegungsmodus ist es dann möglich die Kamera wie oben beschrieben zu steuern. Der Mauscursor wird dabei ausgeblendet.
