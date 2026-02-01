@@ -9,4 +9,4 @@ Mögliche nächste Schritte:
 - Besseres Flugzeugmodell/Material und UI-Overlays für Geschwindigkeit/Höhe je Marker.
 - Offline-Cache und Retry-Strategien bei instabilem Netz.
 - Mehr Interaktion: Auswahl konkreter Tail-Numbers in der App, Filter nach Typ, Bilder von Flugzeugtypen.
-- Vuforia für 3D visualisierung auf dem Smartphone.
+- Vuforia für 3D Visualisierung auf dem Smartphone.

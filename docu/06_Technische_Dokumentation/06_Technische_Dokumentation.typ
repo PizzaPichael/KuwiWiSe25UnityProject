@@ -1,7 +1,7 @@
 = Technische Dokumentation <TechnischeDoku>
 
 == Backend
-Zum sammeln und bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammlen wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zusehen wurde zum speichern der abgefragen Daten wurde ein simples Datenbankmodell entwickelt.
+Zum Sammeln und Bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammeln wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zu sehen wurde zum Speichern der abgefragten Daten wurde ein simples Datenbankmodell entwickelt.
 
 #figure(
   caption: [Relationales Daten-Modell],
@@ -29,7 +29,7 @@ Zum Administrieren der Daten wurde das Admin-Interface von Django konfiguriert. 
   image("../assets/DjangoAdmin.png", width: 70%),
 )<django_admin_interface>
 
-Jedes `Airplane` hat eine one to many realtionship mit `Location`. Wie in @airplane zu sehen, kann jedes `Airplane` und seine zugehörigen `Location`´s eingesehen und bearbeitet werden.
+Jedes `Airplane` hat eine one to many relationship mit `Location`. Wie in @airplane zu sehen, kann jedes `Airplane` und seine zugehörigen `Location`´s eingesehen und bearbeitet werden.
 
 #figure(
   caption: [Django Admin Interface],
@@ -40,24 +40,24 @@ Das vollständige API-Schema kann unter #link("https://flights.davidkirchner.de/
 
 == Unity Anwendung
 
-Die Stuktur der Unity Anwendung besteht aus 3 Hauptkomponenten. Den `AirplaneMapper`, dem `PlayerController` und dem `ClickPlaneManager`.
+Die Struktur der Unity Anwendung besteht aus 3 Hauptkomponenten. Den `AirplaneMapper`, dem `PlayerController` und dem `ClickPlaneManager`.
 
 
 === AirplaneMapper Airplane und CoordinateFetcher
 
-Im `AirplaneMapper` liegen alle veranwortlichkeiten zum Anzeigen der Flugzeuge auf dem Erdball. Er kontrolliert lifetimes für die `Airplane` und `Indicator` Objekte. Zusätzlich nutzt dieser den `CoordinateFetcher` zum Abrufen der Daten von Backend und zum instanziieren der `Airplane` Objekte.
+Im `AirplaneMapper` liegen alle Verantwortlichkeiten zum Anzeigen der Flugzeuge auf dem Erdball. Er kontrolliert lifetimes für die `Airplane` und `Indicator` Objekte. Zusätzlich nutzt dieser den `CoordinateFetcher` zum Abrufen der Daten von Backend und zum instanziieren der `Airplane` Objekte.
 
 Jedes `Airplane` ist für das abspielen seiner Positionsdaten und das spawnen und zerstören von den zugehörigen Positionsmarker verantwortlich.
 
 
 === PlayerController
 
-Der `PlayerController` beinhaltet alle Funktionalitäten die zum bewegen der Kamera benötigt werden. Es werden mehrere Eventlistener verwendet um die Bewegung der Maus und Tastendrücke abzufangen und zu behandeln. Der `PlayerController` hat durch den Inspector einstellbare attribute welche die Mausempfindlichkeit, die Winkelgrenzen und die Bewegungsgeschwindigkeit steuern.
+Der `PlayerController` beinhaltet alle Funktionalitäten die zum bewegen der Kamera benötigt werden. Es werden mehrere Event-Listener verwendet um die Bewegung der Maus und Tastendrücke abzufangen und zu behandeln. Der `PlayerController` hat durch den Inspector einstellbare Attribute welche die Mausempfindlichkeit, die Winkelgrenzen und die Bewegungsgeschwindigkeit steuern.
 
 
 === ClickPlaneManager
 
-Der `ClickPlaneManager` ist für die Spielerinteraktionen mit den Flugzeugen verantwortlich. Durch einen Linksclick wird ein Strahl aus der Mitte der Kamera ausgesendet und überprüft ob das getroffene Objekt den tag `airplane` besitzt. Falls dies der fall ist, über das `Transform` des Objekts das zugehörige `Airplane` abgerufen. Nun wird eine Outline um das Mesh des Airplane Objekts gelegt und die zugehörigen Flugdaten (tailnumber, type, height, speed, heading, latitude, longitude) eingelesen. Dann wird das erstellte Flugdaten Userinterface eingeblendet und die Daten eingefügt.
+Der `ClickPlaneManager` ist für die Spielerinteraktionen mit den Flugzeugen verantwortlich. Durch einen Linksklick wird ein Strahl aus der Mitte der Kamera ausgesendet und überprüft ob das getroffene Objekt den Tag `airplane` besitzt. Falls dies der Fall ist, über das `Transform` des Objekts das zugehörige `Airplane` abgerufen. Nun wird eine Outline um das Mesh des Airplane Objekts gelegt und die zugehörigen Flugdaten (tailnumber, type, height, speed, heading, latitude, longitude) eingelesen. Dann wird das erstellte Flugdaten Userinterface eingeblendet und die Daten eingefügt.
 
 
 == Unity-Datenfluss

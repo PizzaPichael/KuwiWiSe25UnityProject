@@ -16,7 +16,7 @@
 )
 
 #maketitle(
-  title: [Visualiszing private plane travel],
+  title: [Visualizing private plane travel],
   thesis-type: [Kulturwissenschaft/en],
   authors: (
     (
