@@ -128,6 +128,20 @@
 )
 ]
 
+== API-Dokumentation
+\
+#mytext[
+*Vollständiges API-Schema verfügbar unter:*
+
+#link("https://flights.davidkirchner.de/swagger")
+
+*Endpoints:*
+- `/api/airplanes/` - Alle Flugzeuge
+- `/api/airplanes/{tail}/` - Spezifisches Flugzeug
+- `/api/airplanes/popular/` - Populäre Flugzeuge
+- `/api/locations/` - Alle Positionsdaten
+]
+
 = Unity Anwendung
 == Hauptkomponenten
 \
@@ -252,42 +266,7 @@
 - airplanes.live als kostenlose Alternative
 ]
 
-= Technische Highlights
-== Systemanforderungen
-\
-#mytext[
-*Unity Anwendung*
-- Grafikfähiger Windows-PC
-- Geringe Hardware-Anforderungen
-- Unity 6000.2.8f1 (für Entwicklung)
-- Internetverbindung erforderlich
-
-*Backend*
-- Python 3.12 Virtual Environment
-- Docker-Container Alternative
-- Server mit statischer IP-Adresse
-- Dependencies: Django, Celery, DRF, PostgreSQL
-]
-
-== API-Dokumentation
-\
-#mytext[
-*Vollständiges API-Schema verfügbar unter:*
-
-#link("https://flights.davidkirchner.de/swagger")
-
-*Endpoints:*
-- `/api/airplanes/` - Alle Flugzeuge
-- `/api/airplanes/{tail}/` - Spezifisches Flugzeug
-- `/api/airplanes/popular/` - Populäre Flugzeuge
-- `/api/locations/` - Alle Positionsdaten
-]
-
 = Demo
-\
-#align(center + horizon)[
-  #text(size: 32pt)[*Live-Demonstration*]
-]
 
 = Ausblick
 == Mögliche Erweiterungen
@@ -301,8 +280,6 @@
 
 *Funktionale Erweiterungen*
 - Erweiterte Filteroptionen (Typ, Region, Zeitraum)
-- Auswahl konkreter Tail-Numbers in der App
-- Historische Datenanalyse und Replay
 - Integration kommerzieller Flüge zum Vergleich
 ]
 
@@ -321,22 +298,6 @@
 - Regulatorische Hürden (FAA-Blockade)
 - Performance-Optimierung bei großen Datenmengen
 - Wert von flexiblem Umdenken bei Hindernissen
-]
-
-== Zusammenfassung
-\
-#mytext[
-*Das Projekt demonstriert:*
-- Erfolgreiche Integration verteilter Systeme
-- Umgang mit unvollständigen Datenquellen
-- Praktische Anwendung von AR/3D-Visualisierung
-- Kritische Auseinandersetzung mit Privatflug-Thematik
-
-*Dokumentation:*
-- Umfassende technische Dokumentation
-- Klare Aufgabenverteilung
-- Nachvollziehbare Problemlösungen
-- Basis für zukünftige Erweiterungen
 ]
 
 = Vielen Dank für Ihre Aufmerksamkeit!
