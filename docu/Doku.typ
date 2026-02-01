@@ -55,4 +55,6 @@
 
 #include "08_Fazit/08_Fazit.typ"
 
+#pagebreak()
+
 #bibliography("09_Bibliography/09_Bibliography.bib")
