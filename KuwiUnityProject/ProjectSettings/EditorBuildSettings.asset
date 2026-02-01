@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AR MainScene.unity
     guid: e5da5752b60c3d04d9e5b5887c78d963
   - enabled: 0
     path: Assets/Scenes/AllModelsPreview.unity
     guid: 40c8cb1832da8474ab6bd20962940d68
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: fdc8b2ee9e5ec4e4bb0e2cfcb2035727
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

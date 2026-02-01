@@ -1,39 +1,39 @@
-= Technische Dokumentation
+= Technische Dokumentation <TechnischeDoku>
 
 == Backend
 Zum sammeln und bereitstellen der Positionsdaten der Privatejets haben wir ein Backend mit dem Python Framework `Django` implementiert. Um die Positionsdaten zu sammlen wir die öffentlich und kostenlos zugängliche API von #link("https://airplanes.live/api-guide/")[Airplanes.live] abgefragt. Wie in @datamodel zusehen wurde zum speichern der abgefragen Daten wurde ein simples Datenbankmodell entwickelt.
 
 #figure(
   caption: [Relationales Daten-Modell],
-  image("../assets/Models.png", width: 50%)
+  image("../assets/Models.png", width: 50%),
 )<datamodel>
 
 Das Python package `Celery` wird verwendet um Tasks asynchron auszuführen. Wir verwenden den Celery Task Scheduler `Beat` um in regelmäßigen Zeitintervallen die Abfragen durchzuführen. Wie in @celery_beat_schedule zu sehen, fragen wir die API alle 5 Minuten ab.
 
 #figure(
-caption: [Celery Beat Schedule],
-```py
-app.conf.beat_schedule = {
-    "fetch-airplane-positions": {
-        "task": "api.tasks.fetch_data",
-        "schedule": 300.0,
-    },
-}
-```
+  caption: [Celery Beat Schedule],
+  ```py
+  app.conf.beat_schedule = {
+      "fetch-airplane-positions": {
+          "task": "api.tasks.fetch_data",
+          "schedule": 300.0,
+      },
+  }
+  ```,
 )<celery_beat_schedule>
 
 Zum Administrieren der Daten wurde das Admin-Interface von Django konfiguriert. Hier können alle gesammelten `Airplanes` und `Locations` eingesehen und bearbeitet werden.
 
 #figure(
   caption: [Django Admin Interface],
-  image("../assets/DjangoAdmin.png", width: 70%)
+  image("../assets/DjangoAdmin.png", width: 70%),
 )<django_admin_interface>
 
-Jedes `Airplane` hat eine one to many realtionship mit `Location`. Wie in @airplane zu sehen, kann jedes `Airplane` und seine zugehörigen `Location`´s eingesehen und bearbeitet werden. 
+Jedes `Airplane` hat eine one to many realtionship mit `Location`. Wie in @airplane zu sehen, kann jedes `Airplane` und seine zugehörigen `Location`´s eingesehen und bearbeitet werden.
 
 #figure(
   caption: [Django Admin Interface],
-  image("../assets/Aiplane.png", width: 100%)
+  image("../assets/Aiplane.png", width: 100%),
 )<airplane>
 
 Das vollständige API-Schema kann unter #link("https://flights.davidkirchner.de/swagger")[https://flights.davidkirchner.de/swagger] eingesehen werden.
@@ -45,12 +45,12 @@ Die Stuktur der Unity Anwendung besteht aus 3 Hauptkomponenten. Den `AirplaneMap
 
 === AirplaneMapper Airplane und CoordinateFetcher
 
-Im `AirplaneMapper` liegen alle veranwortlichkeiten zum Anzeigen der Flugzeuge auf dem Erdball. Er kontrolliert lifetimes für die `Airplane` und `Indicator` Objekte. Zusätzlich nutzt dieser den `CoordinateFetcher` zum Abrufen der Daten von Backend und zum instanziieren der `Airplane` Objekte. 
+Im `AirplaneMapper` liegen alle veranwortlichkeiten zum Anzeigen der Flugzeuge auf dem Erdball. Er kontrolliert lifetimes für die `Airplane` und `Indicator` Objekte. Zusätzlich nutzt dieser den `CoordinateFetcher` zum Abrufen der Daten von Backend und zum instanziieren der `Airplane` Objekte.
 
 Jedes `Airplane` ist für das abspielen seiner Positionsdaten und das spawnen und zerstören von den zugehörigen Positionsmarker verantwortlich.
 
 
-=== PlayerController 
+=== PlayerController
 
 Der `PlayerController` beinhaltet alle Funktionalitäten die zum bewegen der Kamera benötigt werden. Es werden mehrere Eventlistener verwendet um die Bewegung der Maus und Tastendrücke abzufangen und zu behandeln. Der `PlayerController` hat durch den Inspector einstellbare attribute welche die Mausempfindlichkeit, die Winkelgrenzen und die Bewegungsgeschwindigkeit steuern.
 

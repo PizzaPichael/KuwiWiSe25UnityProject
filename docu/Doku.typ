@@ -40,25 +40,19 @@
 
 
 #include "01_Einleitung/01_Einleitung.typ"
-(Micha David)
 
 #include "02_Systemanforderungen/02_Systemanforderungen.typ"
-(David)
 
 #include "03_Verwendete_Assets/03_Verwendete_Assets.typ"
-(Micha)
 
 #include "04_Interaktion/04_Interaktion.typ"
-(Micha)
 
 #include "05_Design_der_Benutzeroberflaechen/05_Design_der_Benutzeroberflaechen.typ"
-(Micha)
 
 #include "06_Technische_Dokumentation/06_Technische_Dokumentation.typ"
-(David)
 
 #include "07_Problemlösung/07_Problemlösung.typ"
-(Micha David)
 
 #include "08_Fazit/08_Fazit.typ"
-(Micha David)
+
+#bibliography("09_Bibliography/09_Bibliography.bib")
