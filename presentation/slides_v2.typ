@@ -5,7 +5,8 @@
   date: "17.01.2026",
   authors: ("Michael Kaup", "David Kirchner"),
   ratio: 16/9,
-  layout: "small"
+  layout: "small",
+  toc: false
 )
 
 #let mytext(body) = [
@@ -96,6 +97,7 @@
 == Backend: Technische Details
 #columns(2)[
 #mytext[
+  \
 - *Django Python-Framework*
   - REST-API für Flugdaten
   - Django-Rest-Framework
@@ -105,12 +107,13 @@
   - Alle 5 Minuten
   - 1 Sekunde Pause pro Flugzeugtyp
 
+\
 - *Datenvalidierung*
   - Tail-Number-Validierung
   - Höhenangaben-Normalisierung
 ]
 #figure(
-  image("./assets/Models.png", width: 90%),
+  image("./assets/Models.png", width: 83%),
   caption: [Relationales Datenmodell]
 )
 ]
