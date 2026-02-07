@@ -47,7 +47,7 @@
               #block(inset: (left: 1.2em))[
                 7. @demo
                 #block(inset: (left: 1.2em))[
-                  8. @ausblick + @fazit
+                  8. @ausblick
                 ]
               ]
             ]
@@ -222,26 +222,16 @@
 ]
 
 = Interaktion<interaktion>
-== Steuerung
+== Hauptmenü
 #figure(
       image("./assets/screenshots/MainMenuUI.png", width: 75%),
       caption: [Hauptmenü],
     )
 
-== Steuerung
-\
-#mytext[
-  
-    #figure(
-      image("./assets/screenshots/MoveControlls.gif", width: 60%),
-      caption: [Kamerabewegung mit der Tastatur],
+#figure(
+      image("./assets/screenshots/Flightcomputer.png", width: 75%),
+      caption: [HUD mit Beschreibung der Controls],
     )
-
-    #figure(
-      image("./assets/screenshots/LookControls.gif", width: 60%),
-      caption: [Kamera Drehung mit der Maus],
-    )
-]
 
 == Flugzeugauswahl
 \
@@ -257,22 +247,13 @@
       caption: [Flugzeug hervorgehoben nach Auswahl],
     )
   ]
-\
-\
-\
-\
-\
-\
-  #columns(2, gutter: 1.2em)[
-    #figure(
-      image("./assets/screenshots/plane_HUD.png", width: 90%),
-      caption: [HUD mit Flugzeuginformationen],
-    )
-    #figure(
-      image("./assets/screenshots/Flightcomputer.png", width: 80%),
-      caption: [HUD mit Beschreibung der Controls],
-    )
-  ]
+
+#columns(1, gutter: 1.2em)[
+  #figure(
+    image("./assets/screenshots/plane_HUD.png", width: 75%),
+    caption: [HUD mit Flugzeuginformationen],
+  )
+]
 ]
 
 = Herausforderungen<herausforderungen>
@@ -283,27 +264,22 @@
   - Künstliche Pausen (1 Sek. pro Typ)
   - Moderates Abfrage-Intervall (5 Min.)
   - Vermeidung von API-Sperren
-
-  *Datenbeschaffung und -bereinigung*
-  - Kostenlose vs. kostenpflichtige Datenquellen
-  - Validierung der Tail-Number-Länge
-  - Filterung fehlerhafter Datensätze
-
-  \
-
-  *Zeitseriendaten*
-  - Normalisierung der Zeitkomponente
-  - Alle Daten als gleichzeitig angezeigt
-  - Vereinfachte Analyse
 ]
 
-== Performance und Abdeckung
+#pagebreak()
+\
 #mytext[
-  \
-  *Marker-Performance*
-  - Definierte Marker-Lebensdauer
-  - Stabile Framerate
+  *Datenbeschaffung und -bereinigung*
+  - Keine historischen Daten (kostenpflichtig)
+  - airplanes.live als kostenlose Alternative
+  - Eigene Datensammlung über Live-API
+  - Validierung der Tail-Number-Länge
+  - Filterung fehlerhafter Datensätze
+]
 
+== Abdeckung
+\
+#mytext[
   *Geografische Abdeckung*
   - Nordamerika: Sehr hoch
   - Europa: Mittel
@@ -311,9 +287,10 @@
   - Crowdsourcing-bedingte Unterschiede
 ]
 
+
 == Tracking-Problematik
+\
 #mytext[
-  \
   *Prominente Personen*
   - FAA-Blockade von Registrationsdaten
   - Privatjet-Owner können Daten verbergen
@@ -323,13 +300,6 @@
   - Umstellung auf Flugzeugtypen
   - Fokus auf typische Privatjet-Modelle
   - Gulfstream, Cessna Citation, Bombardier
-
-  \
-
-  *Datenverfügbarkeit*
-  - Keine historischen Daten (kostenpflichtig)
-  - Eigene Datensammlung über Live-API
-  - airplanes.live als kostenlose Alternative
 ]
 
 = Demo<demo>
@@ -347,23 +317,6 @@
   *Funktionale Erweiterungen*
   - Erweiterte Filteroptionen (Typ, Region, Zeitraum)
   - Integration kommerzieller Flüge zum Vergleich
-]
-
-= Fazit<fazit>
-== Projektergebnis
-\
-#mytext[
-  *Erfolge*
-  - Vollständige End-to-End-Pipeline funktionsfähig
-  - Robuste Backend-Architektur mit Django + Celery
-  - Intuitive 3D-Visualisierung in Unity
-  - Pragmatische Lösungen für komplexe Probleme
-
-  *Erkenntnisse*
-  - Grenzen öffentlicher Flugdatenverfügbarkeit
-  - Regulatorische Hürden (FAA-Blockade)
-  - Performance-Optimierung bei großen Datenmengen
-  - Wert von flexiblem Umdenken bei Hindernissen
 ]
 
 = Vielen Dank für Ihre Aufmerksamkeit!<danke>
