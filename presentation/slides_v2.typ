@@ -145,10 +145,10 @@
   - REST-API für Flugdaten
   - Django-Rest-Framework
 
-    - *Celery Beat Task Scheduler*
-      - Automatisierte API-Abfragen
-      - Alle 5 Minuten
-      - 1 Sekunde Pause pro Flugzeugtyp
+- *Celery Beat Task Scheduler*
+  - Automatisierte API-Abfragen
+  - Alle 5 Minuten
+  - 1 Sekunde Pause pro Flugzeugtyp
 
 \
 - *Datenvalidierung*
