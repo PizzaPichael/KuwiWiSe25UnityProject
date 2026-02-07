@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 1
-  lookSpeed: 60
+  lookSpeed: 1
   lookXLimit: 75
 --- !u!135 &1145580813
 SphereCollider:
@@ -1080,10 +1080,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2130006535}
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2130006547}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 891e83014245f1f48b1425287e9773e6, type: 3}
 --- !u!1 &1248816519
 GameObject:
@@ -1498,3 +1498,4 @@ SceneRoots:
   - {fileID: 284524957}
   - {fileID: 1576385151}
   - {fileID: 1248816521}
+  - {fileID: 1152238161}
