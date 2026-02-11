@@ -1,8 +1,8 @@
 #import "@preview/diatypst:0.9.0": *
 #show: slides.with(
   title: "Visualizing private plane travel", // Required
-  subtitle: "Kulturwissenschaften",
-  date: "17.01.2026",
+  subtitle: "Kulturwissenschaft",
+  date: "11.02.2026",
   authors: ("Michael Kaup", "David Kirchner"),
   ratio: 16 / 9,
   layout: "small",
@@ -60,24 +60,33 @@
 
 = Motivation und Kontext<motivation>
 == Projektidee
-\
-#mytext[
-  - Flugverkehr im Kontext des Klimawandels
-  - Diskussion: Privatpersonen vs. Privatflüge von Vermögenden
-  - Schwierige Datenlage und fehlende Vergleichbarkeit
-    - Unterschiedliche Zeiträume und Metriken in Statistiken
-    - Kein klares Bild über tatsächliche Umweltauswirkungen
+#align(horizon)[
+  #columns(2)[
+    #figure(
+      image("assets/screenshots/statistic_id1467900_entwicklung-des-passagieraufkommens-bei-inlandsfluegen-in-deutschland-bis-2024.png", width: 100%),
+      caption: [Anzahl der einsteigenden Flugpassagiere bei Inlandsflügen in Deutschland in den Jahren 2017 bis 2024],
+    )
+    #figure(
+      image("assets/screenshots/statistic_id1389719_anzahl-der-privatfluege-inklusive-geschaeftsfluege-in-deutschland-bis-2022.png", width: 100%),
+      caption: [Anzahl der Privatflüge inklusive Geschäftsflüge in Deutschland von 2020 bis 2022],
+    )
+  ]
 ]
-
-== Unsere Idee
+#place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[Statista Research Dept., 2025 ]],
+)
+#pagebreak()
 \
 #mytext[
-  - Live-Tracking und Visualisierung von Privatflugdaten
-  - 3D-Darstellung auf einem virtuellen Globus
-  - Nutzung öffentlich verfügbarer ADS-B Daten
-  - Fokus auf Flugzeugtypen typisch für Privatflüge
-    - Ursprünglich: Tracking prominenter Personen (Musk, Bezos, Swift)
-    - Anpassung: Typen wie Gulfstream, Cessna Citation
+  - Live-Tracking & Visualisierung von Privatflugdaten
+  - 3D-Darstellung auf virtuellem Globus
+  - Öffentlich verfügbare ADS-B Daten
+  - Ursprünglich: Tracking prominenter Personen (Musk, Bezos, Swift)
+  - Anpassung: Fokus auf Flugzeugtypen typisch für Privatflüge
+     - z.B. Gulfstream, Cessna, etc.
 ]
 
 = Vergleichbare Projekte<vergleichbare-projekte>
@@ -102,7 +111,14 @@
       caption: [CO₂-Verbrauch Visualisierung],
     )
   ]
+  #place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[Wikipedia, 2025 ], [Mastodon, 2026 ]],
+)
 ]
+
 
 == Architects of the Apocalypse
 \
@@ -118,8 +134,14 @@
 #pagebreak()
 \
 #figure(
-  image("assets/Architects-of-the-Apocalypse-Thumbnail-1200x536.png", width: 80%),
+  image("assets/Architects-of-the-Apocalypse-Thumbnail-1200x536.png", width: 75%),
   caption: [Architects of the Apocalypse],
+)
+#place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[University of Wisconsin-Madison, 2024]],
 )
 
 = Systemarchitektur<systemarchitektur>
@@ -139,27 +161,31 @@
 
 == Backend: Technische Details
 #columns(2)[
-#mytext[
-  \
-- *Django Python-Framework*
-  - REST-API für Flugdaten
-  - Django-Rest-Framework
+  #mytext[
+    \
+    - *Django Python-Framework*
+      - REST-API für Flugdaten
+      - Django-Rest-Framework
 
-- *Celery Beat Task Scheduler*
-  - Automatisierte API-Abfragen
-  - Alle 5 Minuten
-  - 1 Sekunde Pause pro Flugzeugtyp
+    - *Celery Beat Task Scheduler*
+      - Automatisierte API-Abfragen
+      - Alle 5 Minuten
+      - 1 Sekunde Pause pro Flugzeugtyp
 
-\
-- *Datenvalidierung*
-  - Tail-Number-Validierung
-  - Höhenangaben-Normalisierung
+    \
+    - *Datenvalidierung*
+      - Tail-Number-Validierung
+      - Höhenangaben-Normalisierung
+  ]
 ]
-#figure(
-  image("./assets/Models.png", width: 83%),
-  caption: [Relationales Datenmodell]
-)
-]
+
+#pagebreak()
+#align(center)[
+    #figure(
+      image("./assets/Models.png", height: 95%),
+      caption: [Relationales Datenmodell]
+    )
+  ]
 
 == Django Admin Interface
 \
@@ -191,35 +217,65 @@
 = Unity Anwendung<unity-anwendung>
 == Hauptkomponenten
 \
-#mytext[
+
+  #columns(2)[
+    #mytext[
   *AirplaneMapper*
   - Verwaltung der Flugzeug-Objekte
   - Marker-Lifecycle-Management
   - Integration mit CoordinateFetcher
+    ]
+  #align(horizon)[
+    #figure(
+        image("./assets/screenshots/AirplaneMapper.png", width: 60%),
+        caption: [AirplaneMapper Komponente],
+      )
+    ]
+  ]
 
-  *PlayerController*
-  - Kamera-Steuerung (WASD + Maus)
-  - Zwei Modi: UI-Modus und Bewegungsmodus
-  - Konfigurierbare Bewegungsparameter
+  #pagebreak()
 
-  *ClickPlaneManager*
-  - Flugzeugauswahl per Raycast
-  - Anzeige von Flugdetails im UI
-  - Visual Feedback (Outline)
-]
+  #columns(2)[
+    \
+    #mytext[
+      *PlayerController*
+      - Kamera-Steuerung (WASD + Maus)
+      - Zwei Modi: UI-Modus und Bewegungsmodus
+      - Konfigurierbare Bewegungsparameter
+    ]
+    #align(horizon)[
+      #figure(
+          image("./assets/screenshots/PlayerController.png", width: 80%),
+          caption: [PlayerController Komponente],
+        )
+    ]
+  ]
+
+  #pagebreak()
+
+  #columns(2)[
+    \
+    #mytext[
+    *ClickPlaneManager*
+    - Flugzeugauswahl per Raycast
+    - Anzeige von Flugdetails im UI
+    - Visual Feedback (Outline)
+    - Schließender UI
+    ]
+    #align(horizon)[
+      #figure(
+          image("./assets/screenshots/ClickPlaneManager.png", width: 80%),
+          caption: [ClickPlaneManager Komponente],
+        )
+    ]
+  ]
+  
 
 == Datenfluss
-\
-#mytext[
-  1. *CoordinateFetcher* ruft Django-API ab
-  2. *JSON-Daten* werden in 3D-Koordinaten umgewandelt
-    - Latitude/Longitude → 3D-Position auf Globus
-    - Altitude → Radialer Offset
-  3. *Flugzeug-Prefabs* werden instanziiert
-  4. *Coroutine* spielt Route zeitkomprimiert ab
-  5. *Marker* werden in Intervallen gesetzt (FIFO)
-  6. *Rotation* wird an Globus-Normale angepasst
-]
+#figure(
+        image("./assets/screenshots/Datenfluss.png", height: 95%),
+        caption: [ClickPlaneManager Komponente],
+      )
 
 = Interaktion<interaktion>
 == Hauptmenü
@@ -228,9 +284,20 @@
       caption: [Hauptmenü],
     )
 
+== Controls
 #figure(
       image("./assets/screenshots/Flightcomputer.png", width: 75%),
       caption: [HUD mit Beschreibung der Controls],
+    )
+
+#figure(
+      image("./assets/screenshots/MoveControlls.gif", width: 75%),
+      caption: [Kamerabewegung],
+    )
+
+#figure(
+      image("./assets/screenshots/LookControls.gif", width: 75%),
+      caption: [Kameradrehung],
     )
 
 == Flugzeugauswahl
@@ -319,7 +386,9 @@
   - Integration kommerzieller Flüge zum Vergleich
 ]
 
-= Vielen Dank für Ihre Aufmerksamkeit!<danke>
+= Vielen Dank für eure Aufmerksamkeit!<danke>
+
+== Fragen
 \
 #align(center + horizon)[
   #mytext[
@@ -333,3 +402,20 @@
     Michael Kaup | David Kirchner
   ]
 ]
+
+= Quellen
+== Quellen
+\
+  1. Statista Research Department: _Passagieraufkommen bei Inlandsfluegen in Deutschland 2023._ Statista, 2025. \
+    #link("https://de.statista.com/statistik/daten/studie/1467900/umfrage/passagieraufkommen-bei-inlandsfluegen-in-deutschland-2023/") — Zugriff am 11.02.2026
+  2. Statista Research Department: _Anzahl Privatfluege und Geschaeftsfluege in Deutschland._ Statista, 2025. \
+    #link("https://de.statista.com/statistik/daten/studie/1389719/umfrage/anzahl-privatfluege-und-geschaeftsfluege-in-deutschland/") — Zugriff am 11.02.2026
+  3. Mastodon: _atelonjet._ Mastodon.social, 2026. \
+    #link("https://mastodon.social/@elonjet") — Zugriff am 11.02.2026
+  4. Wikipedia: _ElonJet._ Wikipedia, 2025. \
+    #link("https://en.wikipedia.org/wiki/ElonJet") — Zugriff am 11.02.2026
+  \
+  5. University of Wisconsin-Madison DesignLab: _Architects of the Apocalypse._ DesignLab, 2024. \
+    #link("https://designlab.wisc.edu/architects-of-the-apocalypse/") — Zugriff am 11.02.2026
+
+
