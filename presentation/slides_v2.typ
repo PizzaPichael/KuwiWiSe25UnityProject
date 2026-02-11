@@ -1,8 +1,8 @@
 #import "@preview/diatypst:0.9.0": *
 #show: slides.with(
   title: "Visualizing private plane travel", // Required
-  subtitle: "Kulturwissenschaften",
-  date: "17.01.2026",
+  subtitle: "Kulturwissenschaft",
+  date: "11.02.2026",
   authors: ("Michael Kaup", "David Kirchner"),
   ratio: 16 / 9,
   layout: "small",
@@ -72,6 +72,12 @@
     )
   ]
 ]
+#place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[Statista Research Dept., 2025 ]],
+)
 #pagebreak()
 \
 #mytext[
@@ -105,7 +111,14 @@
       caption: [CO₂-Verbrauch Visualisierung],
     )
   ]
+  #place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[Wikipedia, 2025 ], [Mastodon, 2026 ]],
+)
 ]
+
 
 == Architects of the Apocalypse
 \
@@ -121,8 +134,14 @@
 #pagebreak()
 \
 #figure(
-  image("assets/Architects-of-the-Apocalypse-Thumbnail-1200x536.png", width: 80%),
+  image("assets/Architects-of-the-Apocalypse-Thumbnail-1200x536.png", width: 75%),
   caption: [Architects of the Apocalypse],
+)
+#place(
+  bottom + right,
+  dx: -0em,
+  dy: -0em,
+  text(size: 8pt)[[University of Wisconsin-Madison, 2024]],
 )
 
 = Systemarchitektur<systemarchitektur>
@@ -258,19 +277,6 @@
         caption: [ClickPlaneManager Komponente],
       )
 
-\
-#mytext[
-  1. *CoordinateFetcher* ruft Django-API ab
-  2. *JSON-Daten* werden in 3D-Koordinaten umgewandelt
-    - Latitude/Longitude → 3D-Position auf Globus
-    - Altitude → Radialer Offset
-  3. *Flugzeug-Prefabs* werden instanziiert
-  4. *Coroutine* spielt Route zeitkomprimiert ab
-  5. *Marker* werden in Intervallen gesetzt (FIFO)
-  6. *Rotation* wird an Globus-Normale angepasst
-]
-
-
 = Interaktion<interaktion>
 == Hauptmenü
 #figure(
@@ -381,6 +387,8 @@
 ]
 
 = Vielen Dank für eure Aufmerksamkeit!<danke>
+
+== Fragen
 \
 #align(center + horizon)[
   #mytext[
@@ -394,3 +402,20 @@
     Michael Kaup | David Kirchner
   ]
 ]
+
+= Quellen
+== Quellen
+\
+  1. Statista Research Department: _Passagieraufkommen bei Inlandsfluegen in Deutschland 2023._ Statista, 2025. \
+    #link("https://de.statista.com/statistik/daten/studie/1467900/umfrage/passagieraufkommen-bei-inlandsfluegen-in-deutschland-2023/") — Zugriff am 11.02.2026
+  2. Statista Research Department: _Anzahl Privatfluege und Geschaeftsfluege in Deutschland._ Statista, 2025. \
+    #link("https://de.statista.com/statistik/daten/studie/1389719/umfrage/anzahl-privatfluege-und-geschaeftsfluege-in-deutschland/") — Zugriff am 11.02.2026
+  3. Mastodon: _atelonjet._ Mastodon.social, 2026. \
+    #link("https://mastodon.social/@elonjet") — Zugriff am 11.02.2026
+  4. Wikipedia: _ElonJet._ Wikipedia, 2025. \
+    #link("https://en.wikipedia.org/wiki/ElonJet") — Zugriff am 11.02.2026
+  \
+  5. University of Wisconsin-Madison DesignLab: _Architects of the Apocalypse._ DesignLab, 2024. \
+    #link("https://designlab.wisc.edu/architects-of-the-apocalypse/") — Zugriff am 11.02.2026
+
+
